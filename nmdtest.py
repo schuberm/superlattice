@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 import nmdsetup as nmdsetup
 import nmd as nmd
 
@@ -9,6 +10,7 @@ kpt=np.loadtxt('kptlist.dat')
 
 testnmd=nmd.Nmd(vel,pos,eig,kpt)
 
-print testnmd.spctEnrg(1,1)
-
+#print testnmd.spctEnrg(1,1)
+plt.plot(np.real(testnmd.spctEnrg(1,1)))
+plt.show()
 
