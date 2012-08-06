@@ -1,4 +1,4 @@
-#header
+
 
 #nmdpy
 
@@ -10,10 +10,10 @@ A pyhton implementation of the Normal Mode Decomposition calculation described b
 
 ============
 
-GULP (http://projects.ivec.org/gulp/)*
-lammps (http://lammps.sandia.gov/)*
-python 2.6+*
-numpy/scipy*
+* [GULP] (http://projects.ivec.org/gulp/)
+* [lammps] (http://lammps.sandia.gov/)
+* [python 2.6+] (http://www.python.org/download/)
+* [numpy/scipy] (http://scipy.org/Download)
 
 #Example
 
