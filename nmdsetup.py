@@ -30,7 +30,6 @@ class Vel:
 
 	def __init__(self,file_name=None):
 		self._file_name=file_name
-		self._position=Position
 		self._all=np.loadtxt(str(file_name),comments='--')
 
 	def vxts(self):
@@ -41,7 +40,8 @@ class Vel:
 
 	def vzts(self):
 		return self._all[:,2]
-
+	def nvel(self):
+		return len(self._all[:,0])
 class Eig:
 
 	def __init__(self,file_name=None):
@@ -50,7 +50,7 @@ class Eig:
 	def x(self,kindex=None,mode=None):
 		if kindex == None and mode == None:
 			return self._all[0::3,:]
-		if mode != None:
+		if mode != None and kindex == None:
 			return self._all[0::3,mode]
 		else:
 			return self._all[len(self._all[0,:])*kindex:(len(self._all[0,:])*(kindex+1)-1):3,mode]
@@ -58,7 +58,7 @@ class Eig:
 	def y(self,kindex=None,mode=None):
 		if kindex == None and mode == None:
 			return self._all[1::3,:]
-		if mode != None:
+		if mode != None and kindex == None:
 			return self._all[1::3,mode]
 		else:
 			return self._all[len(self._all[0,:])*kindex+1:(len(self._all[0,:])*(kindex+1)):3,mode]
@@ -66,7 +66,10 @@ class Eig:
 	def z(self,kindex=None,mode=None):
 		if kindex == None and mode == None:
 			return self._all[2::3,:]
-		if mode != None:
+		if mode != None and kindex == None:
 			return self._all[2::3,mode]
 		else:
 			return self._all[len(self._all[0,:])*kindex+2:(len(self._all[0,:])*(kindex+1)+1):3,mode]
+
+	def natomucell(self):
+		return len(self._all[0,:])/3
