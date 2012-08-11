@@ -4,7 +4,7 @@
 
 =============
 
-A pyhton implementation of the Normal Mode Decomposition calculation described by Larkin et al.
+A python implementation of the Normal Mode Decomposition calculation described by Larkin et al.
 
 #Requirements
 
@@ -25,7 +25,6 @@ Follow the outline described in nmdtest.py
 #To Do
 
 * Exception handling
-* Parallelization
 
 #How to contribute
 
