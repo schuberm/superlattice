@@ -1,7 +1,6 @@
 #Author samuel.huberman@gmail.com
 
 import numpy as np
-import re
 
 class Pos:
 
