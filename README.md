@@ -25,6 +25,8 @@ Follow the outline described in nmdtest.py
 #To Do
 
 * Exception handling
+* I/O with Gulp
+* I/O with lammps
 
 #How to contribute
 
