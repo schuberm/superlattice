@@ -16,4 +16,6 @@ The raw data used to generate these plots is available under /rawdata. The organ
 * Run GK for larger domains
 * Project MFP along cross-plane direction
 * Max out accuracy of the Lorentzian fits
-* Check for localization of modes 
+* Check for localization of modes
+* Try different mass ratios
+* Try run at 10K (average over seed in NMD, fft=2^19) 
