@@ -79,12 +79,13 @@ class Eig:
 
 class Nmd:
 
-	def __init__(self,vel,pos,eig,kpt):
+	def __init__(self,vel,pos,eig,kpt,inputparam):
 			self._vel=vel
 			self._pos=pos
 			self._eig=eig
 			self._kpt=kpt
-			self._nfft=vel.nvel()/pos.natoms()
+			self._nfft=inputparam.t_fft/inputparam.t_step
+			#self._nfft=vel.nvel()/pos.natoms()
 			self._natomucell=eig.natomucell()
 			self._nrep=self._nfft*pos.natoms()/self._natomucell
 

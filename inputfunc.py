@@ -2,48 +2,22 @@ import numpy as np
 
 #import latticmod as lt
 #import strchg as stc
-
-class GulpData(inputparam):
-
-	def __init__(self):
-
-	def kptlist(self):
-
-	def getvel(self):
-
-	def getfreq(self):
-
-	def geteig(self):
-
-class LammpsData(inputparam):
-
-	def __init__(self):
-
-	def scripts(self):
-
-	def submit(self):
-
-	def getvel(self):
-
-class Superlattice(inputparam):
-
-	def __init__(self):
-
-	def bigucell(self):
+#import param as param
 
 class InputParam:
 
-	def __init_(self):
+	def __init__(self):
 		self.Nx=4
 		self.Ny=4
 		self.Nz=4
+		self.lattice='fcc'
 		self.period=[4,1,1]
 		self.alat=6.2529/4
 		self.mass=[39.948,119.844]
 		self.atype=['Ar1','Ar2']
-		self.t_total = 2^20
-		self.t_fft = 2^16
-		self.t_step = 2^5
+		self.t_total = 2**20
+		self.t_fft = 2**16
+		self.t_step = 2**5
 		self.dt = 0.002
 		self.nseeds=5
 		self.gulppath='/home/jason/GULP/gulp.4.0/Src'
