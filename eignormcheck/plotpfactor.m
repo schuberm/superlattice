@@ -8,7 +8,7 @@ kb = 1.3806E-23;
 c= 299792458;
 
 %period=[4,6,8,10,12,16]
-period=['8'];
+period=['4'];
 colour=['b'];
 
 figure
