@@ -19,7 +19,7 @@ The raw data used to generate these plots is available under /rawdata. The organ
 * Size effects studies
 * Check for localization of modes
 * Try different mass ratios
-* Try run at 10K (average over seed in NMD, fft=2^19) i
+* Try run at 10K (average over seed in NMD, fft=2^19)
 * Acoustic vs. Optical modes contribution to K
 * Best way to confirm/compare reduction in group velocities?
 * Species diffusion studies
