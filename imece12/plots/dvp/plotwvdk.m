@@ -101,8 +101,8 @@ m=sortrows(m,1);
 indices = find(m(:,1)==0);
 m(indices,:) = [];
 
-kwcp=zeros(250,1);
-kwip=zeros(250,1);
+kwcp=zeros(300,1);
+kwip=zeros(300,1);
 dw=floor(length(m(:,1))/length(kwcp));
 fdw=max(m(:,1))/length(kwcp);
 fkw=fdw*(1:1:length(kwcp));
@@ -111,8 +111,8 @@ for j=2:1:length(kwcp)
     [I]=logical(fdw*(j-1)<m(:,1) & m(:,1)<fdw*j );
     %kwcp(j)=kwcp(j-1)+sum(m(I,2));
     %kwip(j)=kwip(j-1)+sum(m(I,3));
-    kwcp(j)=sum(m(I,2));
-    kwip(j)=sum(m(I,3));
+    kwcp(j)=sum(m(I,2))/kappax;
+    kwip(j)=sum(m(I,3))/((kappay+kappaz)/2);
 end
 
 %semilogx(fdw*(1:1:length(kw)),kw,'o')
