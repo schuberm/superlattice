@@ -1,0 +1,49 @@
+\documentclass[12pt,twoside]{article}
+\usepackage{fancyhdr}
+\usepackage{pslatex}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{setspace}
+\usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry}
+
+\pagestyle{empty}
+\lhead{Samuel Huberman}
+\chead{}
+\rhead{}
+\linespread{1.2}
+
+
+\begin{document}
+
+\begin{center}
+\textbf{Predicting Phonon Properties in Superlattices from Molecular Dynamics and Lattice Dynamics}\\
+\footnotesize
+Samuel C. Huberman$^1$, Jason M. Larkin$^2$, Alan J. H. McGaughey$^2$ and Cristina H. Amon$^{1,2}$\\
+\textit{$^1$ Department of Mechanical \& Industrial Engineering, University of Toronto, Toronto, Canada M5S 3G8}\\
+\textit{$^2$ Department of Mechanical Engineering, Carnegie Mellon University, Pittsburgh, PA 15213}
+\end{center}
+\begin{spacing}{1.25}
+The measure of performance of a thermoelectric device is the figure of merit which is directly proportional to electrical conductivity and inversely proportional to thermal conductivity. By choosing or designing materials to manipulate these transport properties, the figure of merit can be increased. Superlattices, periodic nanocomposite materials of alternating material layers, have demonstrated the promising ability to tune the cross-plane thermal conductivity, $k_{CP}$, while maintaining the electrical conductivity [1], making these structures strong candidates for thermoelectric applications.
+
+The behavior of $k_{CP}$ as function of superlattice period length is subject to debate, with some studies reporting monotonically increasing $k_{CP}$ with increasing period length [2] while others observe decreasing $k_{CP}$  to some minimum beyond which $k_{CP}$  increases with period length [3]. The controversy remains in large part because the computational effort to study these superlattice systems on a mode by mode basis has been, thus far, prohibitive [4].
+
+Here we use molecular dynamics and lattice dynamics to study light/heavy Lennard-Jones argon superlattices. The normal mode decomposition procedure, successful in predicting bulk phonon properties for LJ argon and Stillinger-Weber silicon [5], is extended to the superlattice geometry. With access to sufficient computational resources and the development of a parallelized workflow, the properties of each phonon mode for a given superlattice period length are determined and $k_{CP}$ calculated from the summation of the thermal conductivity contribution across all modes. The predictions of $k_{CP}$ for a range of period lengths, spanning the supposed minimum, from normal mode decomposition are validated against predictions from the Green-Kubo method [6].
+
+%Our results confirm the presence of a minimum in $k_{CP}$ as a function of period length. The examination of the mode by mode contribution to $k_{CP}$ reveals the non-negligible contribution from longer mean free path phonons for small period lengths. This effect decreases with with increasing period length until the minimum in $k_{CP}$ is reached, at which point the transition from coherent transport to incoherent transport occurs. Beyond this point, $k_{CP}$ increases as the interface density decreases and the contribution across all modes resembles a significantly reduced bulk-like distribution, with small contribution from longer mean free paths.  We show that the change in $k_{CP}$ \newline
+
+Our results reveal the effects of the secondary periodicity upon dispersion and $k_{CP}$. We demonstrate whether the variations in group velocity or phonon lifetime are the governing factors in the change of $k_{CP}$ and discuss the possibility of mode localization.\newline
+\end{spacing}
+
+\begin{spacing}{1}
+\footnotesize
+\noindent
+[1] G. Chen, M. S. Dresselhaus, G. Dresselhaus, J.-P. Fleurial, and T. Caillat, Int. Mater. Rev. \textbf{48}, 45 (2003).\newline
+[2] S. T. Huxtable, A. R. Abramson, C.-L. Tien, A. Majumdar, C. LaBounty, X. Fan, G. Zeng, J. E. Bowers, A. Shakouri, and E. T. Croke, Appl. Phys. Lett. \textbf{80}, 1737 (2002). \newline
+[3] J. C. Caylor, K. Coonley, J. Stuart, T. Colpitts, and R. Venkatasubramanian, Appl. Phys. Lett. \textbf{87}, 023105 (2005). \newline
+[4] D. A. Broido and T. L. Reinecke, Phys. Rev. B \textbf{70} 081310(R) (2004). \newline
+[5]  J. M. Larkin, J. E. Turney, A. D. Massicotte, C. H. Amon and A. J. H. McGaughey, J. Phys.: Condens. Matter, \textit{submitted 2012}. \newline
+[6] E. S. Landry, M. I. Hussein and A. J. H. McGaughey, Phys. Rev. B. \textbf{77}, 184302 (2008). \newline
+
+\noindent Keywords: thermoelectrics, superlattices, thermal conductivity, molecular dynamics, lattice dynamics
+\end{spacing}
+\end{document}
