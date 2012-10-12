@@ -31,8 +31,8 @@ DISPERSION = 500
   Begin      = 0,0,0
   End        = 1/$a,0,0
 
-UNIT_CELL = 4
-  Coordinate = Direct
+UNIT_CELL = 32
+  Coordinate = Cartesian
   Ar1 	0.00000e+00	0.00000e+00	0.00000e+00 
 Ar1 	2.65748e-10	2.65748e-10	0.00000e+00 
 Ar1 	2.65748e-10	0.00000e+00	2.65748e-10 

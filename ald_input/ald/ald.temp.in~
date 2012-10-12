@@ -14,10 +14,10 @@ LATTICE = 3 %Comment
   N3 = NZ
 
 MATERIAL = 2
-  A = ATOM_MASS_1
-  B = ATOM_MASS_2
+  Ar1 = ATOM_MASS_1
+  Ar2 = ATOM_MASS_2
 
-POTENTIAL = LJ 2 A B
+POTENTIAL = LJ 2 Ar1 Ar2
   epsilon = 1.67e-21 1.67e-21 1.67e-21
   sigma   = 3.40e-10 3.40e-10 3.40e-10
   cutoff  = 2.5*3.4e-10 2.5*3.4e-10 2.5*3.4e-10
@@ -32,7 +32,7 @@ DISPERSION = 500
   End        = 1/$a,0,0
 
 UNIT_CELL = 4
-  Coordinate = Direct
+  Coordinate = Cartesian
   COORDS
 
 PREPROCESS = false

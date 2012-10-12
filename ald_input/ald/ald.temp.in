@@ -31,8 +31,8 @@ DISPERSION = 500
   Begin      = 0,0,0
   End        = 1/$a,0,0
 
-UNIT_CELL = 4
-  Coordinate = Direct
+UNIT_CELL = NUMATOMSUCELL
+  Coordinate = Cartesian
   COORDS
 
 PREPROCESS = false
