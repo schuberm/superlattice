@@ -70,10 +70,10 @@ GK.JJ(:,1,1) = (0:(size(GK.JJ,1)-1)')*GK.dt*GK.sample_rate;
             'grep.dat'];
         dummy=dlmread(str.read);
       
-       %GK.JJ(:,2) = GK.JJ(:,2) +...
-       %    ((dummy(2:length(dummy),5)+dummy(2:length(dummy),6))/2);
        GK.JJ(:,2) = GK.JJ(:,2) +...
-           (dummy(2:length(dummy),4));
+           ((dummy(2:length(dummy),5)+dummy(2:length(dummy),6))/2);
+       %GK.JJ(:,2) = GK.JJ(:,2) +...
+       %    (dummy(2:length(dummy),4));
 %system volume
     end
     GK.JJ(:,2) = GK.JJ(:,2)/GK.NUM_SEEDS;
@@ -113,10 +113,28 @@ for itemp=1:GK.NUM_TEMPS
 %plot(GK.intJJ(:))
 %pause
 
+
+%plot(GK.intJJ(:)./max(GK.intJJ(:)))
+%hold on
+%plot(GK.JJ(:,2,1)./max(GK.JJ(:,2,1)))
+%max(GK.intJJ(:))
+%pause
+
 %left = input('left ');
-left = 3000
+%CP
+%left = 4000
+%IP
+left = 4000
 %right = input('right ');
-right = 5000
+%CP
+%right = 6000
+%IP
+right = 6000
+
+%left = input('left ');
+%left = 3000
+%right = input('right ');
+%right = 5000
 
 GK.kappa(1) = mean(GK.intJJ(left:right));
 GK.kappa(2) = std(GK.intJJ(left:right));
@@ -133,8 +151,8 @@ end
 
 %output kappa
 
-%str.write = strcat(str.main,'/4p_IP_GK.dat');
-str.write = strcat(str.main,'/4p_CP_GK.dat');
+str.write = strcat(str.main,'/4p_IP_GK.dat');
+%str.write = strcat(str.main,'/4p_CP_GK.dat');
 output = [GK.kappa]
 
 dlmwrite(str.write,output,'delimiter',' ','-append');

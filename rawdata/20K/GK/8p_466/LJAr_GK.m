@@ -112,11 +112,22 @@ for itemp=1:GK.NUM_TEMPS
 
 %plot(GK.intJJ(:))
 %pause
+%plot(GK.intJJ(:)./max(GK.intJJ(:)))
+%hold on
+%plot(GK.JJ(:,2,1)./max(GK.JJ(:,2,1)))
+%max(GK.intJJ(:))
+%pause
 
 %left = input('left ');
-left = 3000
+%CP
+left = 7000
+%IP
+%left = 7000
 %right = input('right ');
-right = 5000
+%CP
+right = 8000
+%IP
+%right = 10000
 
 GK.kappa(1) = mean(GK.intJJ(left:right));
 GK.kappa(2) = std(GK.intJJ(left:right));
@@ -133,7 +144,7 @@ end
 
 %output kappa
 
-str.write = strcat(str.main,'/kappa(T).dat');
+str.write = strcat(str.main,'/8p_CP_GK.dat');
 output = [GK.kappa]
 
 dlmwrite(str.write,output,'delimiter',' ','-append');

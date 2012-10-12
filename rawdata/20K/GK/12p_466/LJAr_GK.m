@@ -112,9 +112,14 @@ for itemp=1:GK.NUM_TEMPS
 
 %plot(GK.intJJ(:))
 %pause
+%plot(GK.intJJ(:)./max(GK.intJJ(:)))
+%hold on
+%plot(GK.JJ(:,2,1)./max(GK.JJ(:,2,1)))
+%max(GK.intJJ(:))
+%pause
 
 %left = input('left ');
-%left = 15000
+%left = 17000
 left=10000
 %right = input('right ');
 %right = 20000
