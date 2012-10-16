@@ -7,7 +7,8 @@ NMD.x0.LJ.tau = sqrt((NMD.x0.LJ.mass*(NMD.x0.LJ.sigma)^2)/NMD.x0.LJ.eps);
 kb = 1.3806E-23; 
 
 %period=[4,6,8,10,12]
-period=[4,12,24]
+%period=[4,12,24]
+period=[4,12]
 %colour=['b','c','g','m','r','k']
 colour=['b','r','g']
 
@@ -25,27 +26,27 @@ for i=1:1:length(period)
     hold on
     %semilogx(f(1:length(diff(cp))),diff(cp),colour(i),'LineWidth',2);
 
-    %str_freq=strcat(num2str(period(i)),'p_freq_0.8.dat');
-    %str_vel=strcat(num2str(period(i)),'p_vel_0.8.dat');
-    %str_x0=strcat(num2str(period(i)),'p_x0_0.8.dat');
-    %str_life=strcat(num2str(period(i)),'p_life_0.8.dat');
+    str_freq=strcat(num2str(period(i)),'p_freq_0.8.dat');
+    str_vel=strcat(num2str(period(i)),'p_vel_0.8.dat');
+    str_x0=strcat(num2str(period(i)),'p_x0_0.8.dat');
+    str_life=strcat(num2str(period(i)),'p_life_0.8.dat');
 
-    %[f,ip,cp]=omegabin(str_freq,str_vel,str_life,str_x0);
+    [f,ip,cp]=omegabin(str_freq,str_vel,str_life,str_x0);
     %semilogx(f(1:length(diff(cp,3))),diff(cp,3),colour(i),'LineWidth',1.5,'LineStyle','-.')
-    %semilogx(f,smooth(cp),colour(i),'LineWidth',1.5,'LineStyle','-.')
+    semilogx(f,smooth(cp),colour(i),'LineWidth',1.5,'LineStyle','-.')
     %trapz(smooth(cp))
-    %ylim([0 0.02]) 
+    ylim([0 0.06]) 
     yL = get(gca,'YLim');
     line([period(i)*2*0.78161*NMD.x0.LJ.sigma period(i)*2*0.78161*NMD.x0.LJ.sigma],yL,'Color',colour(i));
 end
 
-    str_freq=strcat('bulk_freq.dat');
-    str_vel=strcat('bulk_vel.dat');
-    str_x0=strcat('bulk_x0.dat');
-    str_life=strcat('bulk_life.dat');
-    [f,ip,cp]=omegabin(str_freq,str_vel,str_life,str_x0);
+    %str_freq=strcat('bulk_freq.dat');
+    %str_vel=strcat('bulk_vel.dat');
+    %str_x0=strcat('bulk_x0.dat');
+    %str_life=strcat('bulk_life.dat');
+    %[f,ip,cp]=omegabin(str_freq,str_vel,str_life,str_x0);
     
-    semilogx(f,smooth(cp),'k','LineWidth',1.5)
+    %semilogx(f,smooth(cp),'k','LineWidth',1.5)
 
 xlabel('Phonon Mean Free Path $$[m]$$','interpreter','latex','FontSize',11)
 ylabel('$$\kappa$$ contribution $$[arb. units]$$','interpreter','latex','FontSize',11)
@@ -67,7 +68,7 @@ set(gca, ...
   'Position', [1 1 3.5 3.5]);
 
 set(gcf, 'PaperPositionMode', 'auto');
-print -depsc2 MFP_dvp_contribution.eps
+print -depsc2 MFP_diffusion_contribution.eps
 
 end
 
@@ -123,8 +124,8 @@ for j=2:1:length(kwcp)
     [I]=logical(fdw*(j-1)<m(:,1) & m(:,1)<fdw*j );
     %kwcp(j)=kwcp(j-1)+sum(m(I,2));
     %kwip(j)=kwip(j-1)+sum(m(I,3));
-    kwcp(j)=sum(m(I,2));%/kappax;
-    kwip(j)=sum(m(I,3));%/((kappay+kappaz)/2);
+    kwcp(j)=sum(m(I,2))/kappax;
+    kwip(j)=sum(m(I,3))/((kappay+kappaz)/2);
 end
 
 %semilogx(fdw*(1:1:length(kw)),kw,'o')
