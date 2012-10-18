@@ -1,0 +1,5 @@
+Job ID: 7484.ntpl.bw01.me.cmu.local
+Working directory is /home/jason/superlattice/ald_input/ald/4p cd /home/jason/superlattice/ald_input/ald/4p echo Running on host n007.bw01.me.cmu.local echo Time is Sat Oct 13 19:16:09 PDT 2012 echo Directory is /net/ntpl/home/jason echo This job runs on the following processors:
+n007 n007 n007 n007 n004 n004 n004 n004 n010 n010 n010 n010
+INITIALIZED AND RUNNING '/home/jason/LD/LD_300/joe_parallel'.
+
