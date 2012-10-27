@@ -1,0 +1,63 @@
+%
+%\documentclass[twocolumn,showpacs,preprintnumbers,amsmath,amssymb, floatfix]{revtex4}
+\documentclass[aps,prb,preprint,preprintnumbers,amsmath,amssymb,floatfix,superscriptaddress]{revtex4}
+%\documentclass[aps,prb,twocolumn,preprintnumbers,amsmath,amssymb,floatfix]{revtex4}
+
+% Some other (several out of many) possibilities
+%\documentclass[preprint,aps]{revtex4}
+%\documentclass[preprint,aps,draft]{revtex4}
+%\documentclass[prb]{revtex4}% Physical Review B
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{verbatim}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{epstopdf,subfigure}
+
+\usepackage{natbib}
+
+\newcolumntype{x}[1]{%
+>{\centering\hspace{0pt}}p{#1}}%
+
+%Definition of new commands
+\newcommand{\be} {\begin{eqnarray}}
+\newcommand{\ee} {\end{eqnarray}}
+\newcommand{\f}[2]{\ensuremath{\frac{\displaystyle{#1}}{\displaystyle{#2}}}}
+\newcommand{\lr}[1]{\langle{#1}\rangle}
+
+\begin{document}
+\title{Effect of Interspecies Mixing on Phonon Mean Free Path in Superlattices}
+
+\author{S. C. Huberman}
+\affiliation{Department of Mechanical \& Industrial Engineering, University of Toronto, 
+Toronto, Ontario M5S 3G8, Canada}
+
+\date{\today}% It is always \today, today,
+             %  but any date may be explicitly specified
+
+\vspace{14mm}
+  
+\begin{abstract}
+
+We use Normal Mode Decomposition to obtain phonon properties from quasi-harmonic lattice dynamics calculations and classical molecular dynamics simulations in unstrained Lennard-Jones Argon superlattices. The Relaxation-Time Approximation is used to predict cross-plane and in-plane thermal conductivity for a range of superlattice period lengths. We find that interspecies mixing reduces a phonon's mean free path and for short-period superlattices, the onset of mode localization is observed.
+
+\end{abstract}
+\maketitle
+
+\section*{Introduction}
+The measure of performance of a thermoelectric device is the figure of merit which is directly proportional to electrical conductivity and inversely proportional to thermal conductivity. By choosing or designing materials to manipulate these transport properties, the figure of merit can be increased. Superlattices, periodic nanocomposite materials of alternating material layers, have demonstrated the promising ability to tune the cross-plane thermal conductivity, $k_{CP}$, while maintaining the electrical conductivity, making these structures strong candidates for thermoelectric applications.
+
+\section*{Methodology}
+
+\section*{Results}
+
+\section*{Conclusions}
+
+\newpage
+%\bibliographystyle{prb}
+\bibliography{new.bib}
+
+\end{document}
+
