@@ -9,7 +9,6 @@ if isfield(x0,'alloy')
         
     end
 elseif isfield(x0,'superlattice')
-    %gulp = gulp_disp_crystal_alloy_single_stringchanges( gulp, x0 );
     gulp = m_gulp_superlattice_stringchanges( gulp, x0 );
 	gulp.filename 
 	gulp.orig
@@ -17,8 +16,7 @@ elseif isfield(x0,'superlattice')
 	gulp.change
     m_change_file_strings(...
         gulp.filename , gulp.orig, strcat(gulp.str.main,'/disp.gin') , gulp.change)
-
-
+    
 elseif isfield(x0,'crystal')
 
 end

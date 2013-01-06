@@ -1,7 +1,7 @@
 function freq = m_gulp_grep_freq( gulp , x0 )
 %--------------------------------------------------------------------------
 %This is required to get the kpt + dk to properly input to GULP
-    format long
+format long
 %--------------------------------------------------------------------------
 
 str.cmd = [gulp.path '/' gulp.exe ' disp disp']; system(str.cmd);

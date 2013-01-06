@@ -1,6 +1,5 @@
 function sedsymmf(k,nmdpath)
 
-%k=load(str_kpt);
 str.main=nmdpath
 cumsed=zeros(size(load(strcat(str.main,'SED_000.txt'))));
 

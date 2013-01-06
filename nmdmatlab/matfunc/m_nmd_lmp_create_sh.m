@@ -1,8 +1,6 @@
 function m_nmd_lmp_create_sh(NMD)
 
 
-%for NMD.seed.superlattice =1:size(NMD.seed.superlattice ,2)
-
     str.cmd = ['rm -r ./' int2str(NMD.seed.superlattice )];
     system(str.cmd);
 
@@ -11,10 +9,6 @@ function m_nmd_lmp_create_sh(NMD)
 
     str.cmd = ['mkdir -p ./' int2str(NMD.seed.superlattice )];
     system(str.cmd);
-    
-    %str.cmd = ['cp sh.nmd_lmp.sh ./' int2str(NMD.seed.superlattice ) '/lmp_submit.sh'];
-    %system(str.cmd);    
-
 
 %loops over initial seeds
     for iseed=1:size(NMD.seed.initial,2)
@@ -33,15 +27,11 @@ function m_nmd_lmp_create_sh(NMD)
         str.orig = 'lmp_temp';
         str.change = ['lmp' int2str(iseed)];
         str.cmd4 = ['-e ''s/\<' str.orig '\>/' str.change '/g'' '];
-    
-       str.cmd5 = [NMD.temp.path '/sh.nmd_lmp.sh > ./' int2str(NMD.seed.superlattice ) '/lmp' int2str(iseed) '.sh'];
-    
-    str.cmd = ['sed ' str.cmd1 str.cmd2 str.cmd3 str.cmd4 str.cmd5];
+        str.cmd5 = [NMD.temp.path '/sh.nmd_lmp.sh > ./' int2str(NMD.seed.superlattice ) '/lmp' int2str(iseed) '.sh'];
+        str.cmd = ['sed ' str.cmd1 str.cmd2 str.cmd3 str.cmd4 str.cmd5];
     
         system(str.cmd);
                
-
-        
  	%lmp_submit.sh-------------------------------------------------------------
      if strcmp(NMD.env,'gilgamesh') 
     	output =...
@@ -58,5 +48,4 @@ function m_nmd_lmp_create_sh(NMD)
     	dlmwrite(str.write,output,'-append','delimiter','');
      end
     end 
-%end
 end

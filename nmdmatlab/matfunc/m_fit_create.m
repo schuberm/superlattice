@@ -1,7 +1,5 @@
 function m_fit_create(NMD)
 
-for iseed=1:1
-
     for imode = 1:NMD.NUM_MODESLICES
 %NMD_ISEED_IKSLICE.sh------------------------------------------------------        
         str.orig = 'fit_temp';
@@ -50,8 +48,5 @@ for iseed=1:1
         end
 		
     end
-end
-
-
 
 end

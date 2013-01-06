@@ -1,4 +1,3 @@
-
 function kptcart = create_kptlist(  latvec, Nx, Ny, Nz )
 
 %create kptlist 
