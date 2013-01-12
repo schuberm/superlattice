@@ -18,6 +18,14 @@ NMD.NUM_KPTS = size(NMD.kptmaster(:,1:3),1);
 NMD.kptmaster_index = 1:NMD.NUM_KPTS;
 slice_length = size(NMD.kptmaster,1)/NMD.NUM_MODESLICES;
 
+for ikslice = 1:NMD.NUM_MODESLICES
+    NMD.kpt(:,1:3,ikslice) =...
+        NMD.kptmaster( (ikslice-1)*slice_length+1:(ikslice)*slice_length,1:3);
+    
+    NMD.kpt_index(:,ikslice) =...
+        NMD.kptmaster_index( (ikslice-1)*slice_length+1:(ikslice)*slice_length);
+end
+
 if isfield(NMD,'cofreq')
 
 freq=load(strcat(NMD.str.main,'/freq.dat'));
@@ -25,19 +33,18 @@ freq=load(strcat(NMD.str.main,'/freq.dat'));
 
 
 for ii=1:1:length(I)
-	for jj=1:1:length(J)
 	 str.orig = 'NMD_temp';
-        str.change = ['NMD_' int2str(ii) '_' int2str(jj)];
+        str.change = ['NMD_' int2str(I(ii)) '_' int2str(J(ii))];
         str.cmd1 = ['-e ''s/\<' str.orig '\>/' str.change '/g'' '];
         str.orig = 'runpath';
         str.change = strcat(NMD.str.main,'/',int2str(NMD.seed.superlattice) );
         str.temp = strcat('-e ''s|',str.orig,'|',str.change);
         str.cmd2 = [str.temp '|g'' '];
         str.orig = 'NMD_TEMP.m';
-        str.change = ['NMD_' int2str(ii) '_' int2str(jj) '.m'];
+        str.change = ['NMD_' int2str(I(ii)) '_' int2str(J(ii)) '.m'];
         str.cmd3 = ['-e ''s/\<' str.orig '\>/' str.change '/g'' '];
         str.cmd4 =...
-        [NMD.temp.path '/NMD.sh.temp > ./' int2str(NMD.seed.superlattice) '/NMD_' int2str(ii) '_' int2str(jj) '.sh'];
+        [NMD.temp.path '/NMD.sh.temp > ./' int2str(NMD.seed.superlattice) '/NMD_' int2str(I(ii)) '_' int2str(J(ii)) '.sh'];
         str.cmd = ['sed ' str.cmd1 str.cmd2 str.cmd3 str.cmd4];
         system(str.cmd);
 %NMD_ISEED_IKSLICE.m-------------------------------------------------------        
@@ -47,11 +54,11 @@ for ii=1:1:length(I)
         str.orig = 'IMSLICE';
         str.change = [int2str(I(ii))];
         str.cmd2 = ['-e ''s/\<' str.orig '\>/' str.change '/g'' '];
-        str.orig = '1:NMD.NUM_MODES'
-        str.change = strcat(int2str((jj)),':',int2str((jj)))
+        str.orig = 'IMODE'
+        str.change = strcat(int2str(J(ii)))
         str.cmd3 = ['-e ''s/\<' str.orig '\>/' str.change '/g'' '];
         str.cmd4 =...
-        [NMD.temp.path '/NMD.m.temp > ./' int2str(NMD.seed.superlattice) '/NMD_' int2str(ii) '_' int2str(jj) '.m'];
+        [NMD.temp.path '/NMD.m.temp > ./' int2str(NMD.seed.superlattice) '/NMD_' int2str(I(ii)) '_' int2str(J(ii)) '.m'];
 	
         str.cmd = ['sed ' str.cmd1 str.cmd2  str.cmd3 str.cmd4];
         system(str.cmd);
@@ -61,30 +68,21 @@ for ii=1:1:length(I)
         	['qsub -l walltime=' int2str(NMD.matlab.walltime)...
         	':00:00,nodes=' int2str(NMD.matlab.cpu)...
         	',mem=' int2str(NMD.matlab.mem)...
-        	'gb NMD_' int2str(ii) '_' int2str(jj) '.sh'];
+        	'gb NMD_' int2str(I(ii)) '_' int2str(J(ii)) '.sh'];
     
     		str.write = strcat(NMD.str.main,'/',int2str(NMD.seed.superlattice),'/NMD_submit.sh');
     		dlmwrite(str.write,output,'-append','delimiter','');
         elseif strcmp(NMD.env,'ntpl')
 		str.tmp=strcat(NMD.str.main,'/')
-		output =['qsub  ' str.tmp int2str(NMD.seed.superlattice) '/NMD_' int2str(ii) '_' int2str(jj) '.sh'];
+		output =['qsub  ' str.tmp int2str(NMD.seed.superlattice) '/NMD_' int2str(I(ii)) '_' int2str(J(ii)) '.sh'];
     
     		str.write = strcat(NMD.str.main,'/',int2str(NMD.seed.superlattice),'/NMD_submit.sh');
     		dlmwrite(str.write,output,'-append','delimiter','');
         end
 
-	end
 end
 
 else % if nocofreq
-
-for ikslice = 1:NMD.NUM_MODESLICES
-    NMD.kpt(:,1:3,ikslice) =...
-        NMD.kptmaster( (ikslice-1)*slice_length+1:(ikslice)*slice_length,1:3);
-    
-    NMD.kpt_index(:,ikslice) =...
-        NMD.kptmaster_index( (ikslice-1)*slice_length+1:(ikslice)*slice_length);
-end
 
 for iseed=1:1
 
