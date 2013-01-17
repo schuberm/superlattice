@@ -177,7 +177,7 @@ complex<double>* f_qdot (const vector< vector<complex<double> > > &eigkv, double
 	{
 		for (int i=0; i<rows ;i++)
 		{
-			table[i]=table[i]+(velx[i][j]*eigkv[0][i]+vely[i][j]*eigkv[1][i]+velz[i][j]*eigkv[2][i]);
+			table[j]=table[j]+(velx[i][j]*eigkv[0][i]+vely[i][j]*eigkv[1][i]+velz[i][j]*eigkv[2][i]);
 		}
 	}
 
@@ -192,15 +192,15 @@ complex<double>* f_nmd (complex<double>* qdot, const int &ntstep)
     fftw_plan p = fftw_plan_dft_1d(N,reinterpret_cast<fftw_complex*>(in), 
                                      reinterpret_cast<fftw_complex*>(out),
                                      FFTW_FORWARD, FFTW_ESTIMATE);
-     double pi=acos(-1.);
-     for (int i=0;i<N;i++)
-        in[i]=sin(2*pi*0.2*i);   
+//     double pi=acos(-1.);
+//     for (int i=0;i<N;i++)
+//        in[i]=sin(2*pi*0.2*i);   
  
-    //for (int i=0; i<N ;i++)
-    //{
-//	in[i]=qdot[i];
+    for (int i=0; i<N ;i++)
+    {
+	in[i]=qdot[i];
 //	cout << i;
-//    }
+    }
     fftw_execute(p);
     fftw_destroy_plan(p);
     return out;
@@ -238,8 +238,11 @@ int main ()
 	//cout << eigveccomp.size() << endl;
 	eigkv = f_eigkv(eigveccomp, natomucell, natom, 0, 0);
 	qdot = f_qdot(eigkv,velx,vely,velz,natom,ntstep);
+	//for(int i=0; i<ntstep; i++)
+	//	cout << qdot[i];
 	sed = f_nmd(qdot,ntstep);
-	//cout << sed;
+	for(int i=0; i<ntstep; i++)
+		cout << sed[i];
 			
 	return 0;
 }
