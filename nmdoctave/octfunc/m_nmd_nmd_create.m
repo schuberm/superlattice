@@ -18,12 +18,6 @@ NMD.NUM_KPTS = size(NMD.kptmaster(:,1:3),1);
 NMD.kptmaster_index = 1:NMD.NUM_KPTS;
 slice_length = size(NMD.kptmaster,1)/NMD.NUM_MODESLICES;
 
-% remainder_length = size(NMD.kptlist,1) - slice_length*(NMD.NUM_KSLICE-1);
-%for imslice = 1:NMD.NUM_MODESLICES
-%    NMD.modelist(:,imslice) =...
-%    NMD.modemaster( (imslice-1)*slice_length+1:(imslice)*slice_length);
-%end
-
 for ikslice = 1:NMD.NUM_MODESLICES
     NMD.kpt(:,1:3,ikslice) =...
         NMD.kptmaster( (ikslice-1)*slice_length+1:(ikslice)*slice_length,1:3);
@@ -37,8 +31,7 @@ end
 system(...
     strcat('cp ',NMD.temp.path, '/NMD_submit.sh.temp ./',int2str(NMD.seed.superlattice),'/NMD_submit.sh'));
 
-%for iseed=1:size(NMD.seed.initial,2)
-for iseed=1:1
+iseed=1;
 
     for imode = 1:NMD.NUM_MODESLICES
 %NMD_ISEED_IKSLICE.sh------------------------------------------------------        
@@ -88,7 +81,6 @@ for iseed=1:1
 	end
 		
     end
-end
 
 
 %NMD_grep.m-------------------------------------------------------        
