@@ -34,13 +34,6 @@ NMD.ald.change(10).str = num2str(NMD.x0.Nz);
 NMD.ald.orig(11).str = 'NUMATOMSUCELL';
 NMD.ald.change(11).str = num2str(length(NMD.x0.superlattice.direct(:,1)));
 
-
-%gulp = m_coords2gulp( NMD.gulp, NMD.x0 )
-
-%NMD.ald.orig(9).str = 'COORDS';
-%NMD.ald.change(9).str = gulp.coords;
-
-
 NMD = m_coords2ald( NMD )
 
 NMD.ald.orig(12).str = 'COORDS';
