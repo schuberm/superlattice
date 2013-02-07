@@ -2,3 +2,6 @@
 .DS_store
 *~
 *.dat
+*.pdf
+*.aux
+*.log
