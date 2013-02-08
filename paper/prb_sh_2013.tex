@@ -16,7 +16,7 @@
 \usepackage{booktabs}
 
 \graphicspath{
-{/home/mullspace/Dropbox/git/plots.nogit/images}
+{/home/schuberm/Dropbox/git/plots.nogit/images}
 }
 
 %Definition of new commands
@@ -255,7 +255,7 @@ To obtain the required inputs for the BTE, the phonon lifetime $\tau\kv$ and pho
 
 \begin{figure*}[ht!]
 \begin{center}
-\scalebox{0.5}{ \includegraphics{/home/mullspace/Dropbox/git/plots.nogit/images/4p_ai.eps}}
+\scalebox{0.5}{ \includegraphics{/home/schuberm/Dropbox/git/plots.nogit/images/4p_ai.eps}}
 \renewcommand{\figure}{Fig.}
 \caption{Atomic representation of a $4\times4$ superlattice for perfect (top) and 80/20 (bottom) cases.}
 \label{fig:dispersion}
@@ -269,7 +269,7 @@ Following the approach put forward by Landry \cite{PhysRevB.79.075316}, interspe
 \pmb{\kappa} = \sum_{\alpha} \pmb{b}_{\alpha} \frac{n_{\alpha}}{N_{\alpha}},
 \end{equation}
 %%%
-where $\pmb{b}_\alpha$ are the reciprocal lattice vectors and $ \frac{N_\alpha}{2} < n_\alpha \le \frac {N_\alpha}{2}$, where n are integers and N are now constant even integers. The wavevectors are taken to be in the first Brillouin zone. The eigenvectors, obtained from the lattice dynamics calculations, are used to construct a basis upon which the velocities are projected to obtain the time series of the time derivative of the normal mode coordinate 
+where $\pmb{b}_\alpha$ are the cubically orthogonal reciprocal lattice vectors and $ \frac{N_\alpha}{2} < n_\alpha \le \frac {N_\alpha}{2}$, where n are integers and N are now constant even integers. The wavevectors are taken to be in the first Brillouin zone. The eigenvectors, obtained from the lattice dynamics calculations, are used to construct a basis upon which the velocities are projected to obtain the time series of the time derivative of the normal mode coordinate 
 %%%
 \begin{equation}\label{EQ:NMD:qdot}
 \begin{split}
@@ -323,12 +323,12 @@ where
 \begin{equation}\label{EQ:tau_d}
 \begin{split}
 \frac{1}{\tau_{d}\kv} = \frac{\pi}{2N_{uc}}\omega^2\kv 
-\sum_{\mathbf{\kappa'}\nu'} \delta( \omega\kv - \omega\kvp )\sum_{b} g_2(b) 
+\sum_{\pmb{\kappa'}\nu'} \delta( \omega\kv - \omega\kvp )\sum_{b} g_2(b) 
 |e^*\kvbap \cdot e\kvba |^2 ,
 \end{split}
 \end{equation}
 %%%
-and the term $g_2(b)$ is a coupling term which defines the strength of the disorder
+and the term $g_2(b)$ is a coupling term which defines the strength of the mass disordering
 %%%
 \begin{equation}\label{EQ:g(b)}
 \begin{split}
@@ -336,18 +336,18 @@ g_2(b) = \sum_\mu c^{\mu}(b)(1-m^{\mu}(b)/\bar{m}(b))^2,
 \end{split}
 \end{equation}
 %%%
-$N_{uc}$ is the number of unit cells, and $c^\mu$ is the concentration, $m^\mu(b)$ is the mass of the $\mu$-th species and $\bar{m}^{\mu}$ is the average mass. For the binary LJ argon and SW silicon alloys considered, there is one atom type in the unit cell with $\mu=a,b$, so that the alloying atom labeled by $m^b_{1-c}$ can be considered to be an ``isotope'' of atom labeled $m^a_{c}$. 
+$N_{uc}$ is the number of unit cells, and $c^\mu$ is the concentration of the mixing, $m^\mu(b)$ is the mass of the $\mu$-th species and $\bar{m}^{\mu}$ is the average mass. There is one atom type in the unit cell with $\mu=a,b$, so that the alloying atom labeled by $m^b_{1-c}$ can be considered to be an ``isotope'' of atom labeled $m^a_{c}$. 
 %This convention is appropriate because of the perturbative approach used to derive Eq. ~\ref{TB:tau_d}, while we consider large disorder up to $c=0.5$.\cite{tamura_isotope_1983} 
 
 Green-Kubo (GK) simulations, previously validated against the non-equilibrium direct method \cite {PhysRevB.79.075316}, were performed on the the same molecular domain, for consistency, that was used in the NMD approach for both mixed and non mixed systems. In order to minimize the error in the GK predictions, the relative error function of the heat current autocorrelation function (HCACF) was used to determine the point at which the cumulative integral of the HCACF converges \cite{Chen20102392}.
 
 \section{Results}
-The unit cells described in the previous section generate dispersions similar to what can be seen in Figure~\ref{fig:dispersion}, increasing the number of branches as the number of atoms in the unit cell increases. Mini or stop gaps emerging at the Brouillin zone edges as a consequence of the folding of the branches \cite{PhysRevB.38.1427} \cite{PhysRevB.60.2627}. The density of states shares the $\omega^2$ scaling at low frequencies as found with bulk LJ and Stilinger-Weber silicon systems \cite{}. 
+The unit cells described in the previous section generate dispersions similar to what can be seen in Figure~\ref{fig:dispersion}, increasing the number of branches as the number of atoms in the unit cell increases. Mini or stop gaps emerge at the Brouillin zone edges as a consequence of the folding of the branches \cite{PhysRevB.38.1427} \cite{PhysRevB.60.2627}. The density of states shares the $\omega^2$ scaling at low frequencies as found with bulk LJ and Stilinger-Weber silicon systems \cite{}. 
 %%%
 \renewcommand{\topfraction}{0.7}
 \begin{figure*}[ht!]
 \begin{center}
-\scalebox{1}{ \includegraphics{/home/mullspace/Dropbox/git/plots.nogit/images/4p_dispersion.eps}}
+\scalebox{1}{ \includegraphics{/home/schuberm/Dropbox/git/plots.nogit/images/4p_dispersion.eps}}
 \renewcommand{\figure}{Fig.}
 \caption{Dispersion of a 4x4 superlattice for modes normal to the interfaces. Red squares represent select modes for $\pmb{\kappa}$=[1,0,0].}
 \label{fig:dispersion}
@@ -358,7 +358,7 @@ Selected sample power spectrums are shown in Figure~\ref{fig:sed}. Note that whi
 %%%
 \begin{figure}[!h]
 \begin{center}
-\scalebox{1}{ \includegraphics{/home/mullspace/Dropbox/git/plots.nogit/images/sed.eps}}
+\scalebox{1}{ \includegraphics{/home/schuberm/Dropbox/git/plots.nogit/images/sed.eps}}
 \renewcommand{\figure}{Fig.}
 \caption{(Colour online) Spectral energy density plots for the selected modes along k=[1,0,0] of a $4\times4$ superlattice as indicated by the red square markers in the left frame of Figure~\ref{fig:dispersion}. Dark blue corresponds to a superlattice without mixing, red corresponds to mixing of 80/20 and light blue corresponds to mixing of 60/40. Lifetimes calculated from the fitting of the Lorentzian functions (not shown) are presented.}
 \label{fig:sed}
@@ -368,7 +368,7 @@ Selected sample power spectrums are shown in Figure~\ref{fig:sed}. Note that whi
 %%%
 \begin{figure}%[H]
 \begin{center}
-\scalebox{0.8}{ \includegraphics{/home/mullspace/Dropbox/git/plots.nogit/images/NMD_v_ALD.eps}}
+\scalebox{0.8}{ \includegraphics{/home/schuberm/Dropbox/git/plots.nogit/images/NMD_v_ALD.eps}}
 \renewcommand{\figure}{Fig.}
 \caption{Comparison between lifetimes from NMD and ALD in a $4\times4$ superlattice without interfacial mixing.}
 \label{FIG:NMD_v_ALD}
@@ -376,7 +376,25 @@ Selected sample power spectrums are shown in Figure~\ref{fig:sed}. Note that whi
 \end{figure}
 %%%
 %Confirm the validity of ALD
-Figure~\ref{FIG:NMD_v_ALD} shows no systematic bias between ALD and NMD for shorter lifetimes, with some systematic scatter at the longer lifetimes towards ALD. In general, ALD lifetimes are expected to be larger than NMD lifetimes because ALD neglects the contribution from $n$ order phonon processes, where $n$ is greater than 3 \cite{PhysRevB.79.064301} \cite{esfarjani2011heat}. 
+Figure~\ref{FIG:NMD_v_ALD} shows no systematic bias between ALD and NMD for shorter lifetimes, with some systematic scatter at the longer lifetimes towards ALD. In general, ALD lifetimes are expected to be larger than NMD lifetimes because ALD neglects the contribution from $n$ order phonon processes\cite{PhysRevB.79.064301,esfarjani2011heat}, where $n$ is greater than 3.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ccccc}
+\hline\noalign{\smallskip}
+&\multicolumn{3}{c}{$N\times N$ Superlattice} \\
+\cline{2-5}\noalign{\smallskip}
+\hspace{1cm} & $2\times2$ & $4\times4$ & $8\times8$ & $14\times14$  \\
+\noalign{\smallskip}\hline\noalign{\smallskip}
+$\tau_{eff}$   & 0.51 $\pm$ 0.51 & 0.49 $\pm$ 0.59 &  0.33 $\pm$ 0.34& 0.21 $\pm$ 0.22 \\
+ALD   & 0 $\pm$ 0 & 0.11  $\pm$  0.14 &  0.09  $\pm$  0.07 & NA \\
+\noalign{\smallskip}\hline
+\end{tabular}
+\end{center}
+\renewcommand{\table}{Table.}
+\caption{}
+\label{TB:taud}
+\end{table}
 
 Uncertainty in the NMD and GK prediction of thermal conductivity was found by determining the effect of removing a single molecular dynamics seed upon the average estimate. From Table~\ref{TB:validate}, the predictions for superlattices without interfacial mixing lie within the uncertainty of one another. For superlattices with mixing, NMD predicts a lower in-plane thermal conductivity, differing systematically by about 20\% while the cross-plane predictions, however lie within the uncertainty. For the remainder of this work, the 80/20 system is used to discuss the effects of interfacial mixing upon phonon properties.
 %%%
@@ -406,7 +424,7 @@ In-Plane 60/40   & 0.20 $\pm$ 0.002 & 0.26 $\pm$ 0.01  \\
 \renewcommand{\textfraction}{0.0}
 \begin{figure}%[H]
 \begin{center}
-\scalebox{1}{ \includegraphics{/home/mullspace/Dropbox/git/plots.nogit/images/lifvomega.eps}}
+\scalebox{1}{ \includegraphics{/home/schuberm/Dropbox/git/plots.nogit/images/lifvomega.eps}}
 \renewcommand{\figure}{Fig.}
 \caption{Lifetimes for perfect and mixed systems. From top to bottom $2\times2$, $4\times4$, $8\times8$ and $14\times14$ superlattices. The black line corresponds to the Ioffe-Regel criterion, $2\pi\omega^{-1}$. The brown line corresponds to a $A_2\omega^{-2}$ fit. The green line corresponds to a $A_4\omega^{-4}$ fit.}
 \label{FIG:lifetime}
@@ -415,14 +433,14 @@ In-Plane 60/40   & 0.20 $\pm$ 0.002 & 0.26 $\pm$ 0.01  \\
 %%%
 Phonon lifetime as a function of frequency is shown in Figure ~\ref{FIG:lifetime}. As interspecies mixing is introduced, there is a downwards shift in phonon lifetimes, particularly for the higher frequency modes of short period superlattices, shifting some modes below the Ioffe-Regel criterion. As the modes for a given superlattice have a plane wave structure, enforced by the harmonic solution during the lattice dynamics calculation, reaching the Ioffe-Regel criterion is an indication of not spatial localization but rather temporal localization. Similar trends in the variation of lifetimes with frequency, dipping below the Ioffe-Regel criterion at intermediate frequencies and recovering at higher frequencies, as first observed in alloys \cite{jason2013vc}.
 
-A Rayleigh scattering scaling ($\omega^{-4}$) is observed at larger frequencies for smaller period lengths ($2\times2$, $4\times4$), experienced by long wavelength phonons as a result of defect scattering \cite{PhysRev.140.A1812,klemens_scattering_1955-3,klemens_thermal_1957-2}. Rayleigh scattering is seen with photons in particular superlattices \cite{PhysRevLett.58.2486}. However, because the determination of $\tau\kv$ does not distinguish between phonon scattering mechanisms, the $\omega^{-4}$ scaling diverges at low frequencies and is replaced by $\omega^{-2}$ scaling. For the larger period length superlattices ($8\times8$, $14\times14$), the non-mixed systems have two distinct $\omega^{-4}$ scalings, particularly in the $14\times14$ superlattice and smeared as mixing is introduced.
+A Rayleigh scattering scaling ($\omega^{-4}$) is observed at larger frequencies for smaller period lengths ($2\times2$, $4\times4$), experienced by long wavelength phonons as a result of defect scattering \cite{PhysRev.140.A1812,klemens_scattering_1955-3,klemens_thermal_1957-2}. Rayleigh scattering is seen with photons in particular superlattices \cite{PhysRevLett.58.2486}. However, because the determination of $\tau\kv$ does not distinguish between phonon scattering mechanisms, the $\omega^{-4}$ scaling diverges at low frequencies and is replaced by $\omega^{-2}$ scaling. For the larger period length superlattices ($8\times8$, $14\times14$), the non-mixed systems have two distinct $\omega^{-4}$ scalings, particularly in the $14\times14$ superlattice but become smeared as interfacial mixing is introduced.
 
 From Figure~\ref{FIG:MFP_cp}, there is a clear reduction in the contribution to cross-plane thermal conductivity from modes with a MFP greater than the period length as period length increases. This is consistent with the theoretical predictions from Mahan that a minimum occurs as the transport behaviour shifts from a wave-regime to particle-regime \cite{PhysRevLett.84.927,PhysRevB.56.10754}. This trend is not observed in the contribution curves for the in-plane conductivity (not shown), where the peak MFP remains unchanged as a function of period length. For short period superlattices, interfacial mixing shifts in the peak MFP towards shorter lengths and reduces its respective contribution. For mixed $2\times2$, $4\times4$ and $8\times8$, the peak MFP is shifted arbitrarily close to the period length, indicative of the transition of thermal transport from superlattice phonons to thermal transport from phonons, which may or may not map to the non-mixed dispersion, with MFP on the order of the period length. This trend further supports the fact that superlattice phonons become disrupted by interfacial mixing, thereby diminishing the wave effects of the secondary periodicity upon cross-plane thermal conductivity. At large enough period lengths, the effect of interspecies mixing has a negligible effect on phonon MFP, as the lifetimes become less affected with increasing period length (Figure~\ref{FIG:lifetime}).
 
 %%%
 \begin{figure}%[H]
 \begin{center}
-\scalebox{1}{ \includegraphics{/home/mullspace/Dropbox/git/plots.nogit/images/MFP_cp.eps}}
+\scalebox{1}{ \includegraphics{/home/schuberm/Dropbox/git/plots.nogit/images/MFP_cp.eps}}
 \renewcommand{\figure}{Fig.}
 \caption{Phonon mean free path normalized by the period length contribution to the cross-plane thermal conductivity. From top to bottom $2\times2$, $4\times4$, $8\times8$ and $14\times14$ superlattices.}
 \label{FIG:MFP_cp}
@@ -435,7 +453,7 @@ A computational limitation of NMD is the challenge in resolving longer wavelengt
 %%%
 \begin{figure}%[H]
 \begin{center}
-\scalebox{1}{ \includegraphics{/home/mullspace/Dropbox/git/plots.nogit/images/KvL_24814.eps}}
+\scalebox{1}{ \includegraphics{/home/schuberm/Dropbox/git/plots.nogit/images/KvL_24814.eps}}
 \renewcommand{\figure}{Fig.}
 \caption{In-plane and cross-plane thermal conductivity as a function of superlattice period length.}
 \label{FIG:NMD_v_GK}
