@@ -14,6 +14,7 @@
 \usepackage{amssymb}
 \usepackage{subfigure}
 \usepackage{booktabs}
+\usepackage{verbatim}
 
 \graphicspath{
 {/home/schuberm/Dropbox/git/plots.nogit/images}
@@ -237,20 +238,12 @@ We use normal mode decomposition to obtain phonon properties from quasi-harmonic
 \maketitle
 %%%%
 \section{Introduction}
-Equilibrium \cite {PhysRevB.85.195302} and non-equilibrium \cite {PhysRevB.79.214307,PhysRevB.79.075316,PhysRevB.72.174302} studies of thermal studies have been performed on a variety of superlattices. Although these techniques make predictions about the trends of thermal conductivity, a mode by mode analysis is required to understand the effects of the secondary periodicity, which emerges by alternating layers of dissimilar atoms, upon phonon properties. Prior models relied upon approximations of the specularity and diffusivity of the interfaces \cite {PhysRevB.57.14958} or lacked the computational power \cite {PhysRevB.70.081310}. Recent work \cite{Luckyanova16112012,doi:10.1021/nl202186y} used Density Functional Perturbation Theory to examine phonon properties in superlattice structures. Unlike these works, where the phonon properties for short period superlattices is used for larger period superlattices for computational reasons \cite{Luckyanova16112012, doi:10.1021/nl202186y} or interfacial mixing is neglected \cite{doi:10.1021/nl202186y}, we demonstrate the ability of normal mode decomposition (NMD) to predict the phonon properties in unstrained superlattices with perfect and mixed interfaces without making such approximations.
+Equilibrium \cite {PhysRevB.85.195302} and non-equilibrium \cite {PhysRevB.79.214307,PhysRevB.79.075316,PhysRevB.72.174302} studies of thermal studies have been performed on a variety of superlattices. Although these techniques make predictions about the trends of thermal conductivity, a mode by mode analysis is required to understand the effects of the secondary periodicity, which emerges by alternating layers of dissimilar atoms, upon phonon properties. Prior models relied upon the validity of bulk phonon properties and approximations of the specularity and diffusivity of the interfaces \cite {PhysRevB.57.14958} or lacked the computational power \cite {PhysRevB.70.081310}. Recent work \cite{Luckyanova16112012,doi:10.1021/nl202186y} used Density Functional Perturbation Theory to examine phonon properties in superlattice structures. Unlike these works, where the phonon properties for short period superlattices is used for larger period superlattices for computational reasons \cite{Luckyanova16112012, doi:10.1021/nl202186y} or interfacial mixing is neglected \cite{doi:10.1021/nl202186y}, we demonstrate the ability of normal mode decomposition (NMD) to predict the phonon properties in unstrained superlattices with perfect and mixed interfaces without making such approximations.
 %%%
 \section{Modeling Framework}
+\subsection{Superlattice structure and interactions}
 %%%
-Like previous superlattice studies \cite{Luckyanova16112012,doi:10.1021/nl202186y}, the phonon Boltzmann Transport Equation (BTE) under the single mode relaxation time approximation \cite{ziman_electrons_2001}, is used to predict the thermal conductivity in the $i$th direction
-%%%
-\begin{equation}\label{EQ:M:conductivity}
-\begin{split}
-k_{vib,\mathbf{i}}=&\sum_{\pmb{\kappa},\nu} c_{ph}\kv
-\pmb{v}^{2}_{g,\mathbf{i}}\kv \tau\kv.
-\end{split}
-\end{equation}
-%%%
-To obtain the required inputs for the BTE, the phonon lifetime, $\tau\kv$, and phonon group velocity, $\pmb{v}^{2}_{g,\mathbf{i}}\kv$, we follow the NMD procedure outlined by McGaughey\cite{PhysRevB.71.184305}, Turney \cite {PhysRevB.81.081411} and Larkin \cite{jason_inpress}. The basis of this mode by mode phonon analysis relies upon using the fundamental repeated unit of material, which for the superlattice, consisted of $N/2$ conventional face centered cubic unit cells of $m_a$ and $N/2$ unit cells of $m_b$ along the cross-plane direction, thus a $2\times2$ ($N\times N$) superlattices refers to a superlattice period of 2 ($N$) monolayers of $m_A$ and 2 ($N$) monolayers of $m_B$. Size effects were estimated by performing a convergence study. It was found predictions in both cross-plane and in-plane thermal conductivities varied by less than 10\% for systems with more than $N_x=8$ superlattice UCs along the cross-plane and $N_y=N_z=6$ UCs along the in-plane ($N_x=10$ was used for $2\times2$ to resolve the lifetime scalings without serious computational cost). No lattice strain was permitted as the effects have been studied elsewhere \cite{PhysRevB.72.174302}. 
+The basis of this mode by mode phonon analysis relies upon using the fundamental repeated unit of material, which for the superlattice, consisted of $N/2$ conventional face centered cubic unit cells of $m_a$ and $N/2$ unit cells of $m_b$ along the cross-plane direction, thus a $2\times2$ ($N\times N$) superlattices refers to a superlattice period of 2 ($N$) monolayers of $m_A$ and 2 ($N$) monolayers of $m_B$. No lattice strain was permitted as the effects have been studied elsewhere \cite{PhysRevB.72.174302}. 
 %%%
 
 \begin{figure*}[ht!]
@@ -263,13 +256,35 @@ To obtain the required inputs for the BTE, the phonon lifetime, $\tau\kv$, and p
 \end{figure*}
 %%%
 
-Following the approach put forward by Landry \cite{PhysRevB.79.075316}, interspecies interfacial mixing was controlled by selecting the individual adjacent monolayers to an interface in the molecular dynamics computational cell and flipping the masses of randomly selected atoms until the desired concentrations were reached. For example, a mixing of 80/20 refers an original/foreign blend in an adjacent monolayer. NMD calculations were conducted for a range of period lengths; $2\times2$, $4\times4$, $8\times8$ and $14\times14$ for Lennard-Jones argon superlattices with a mass ratio ($m_a/m_b$) of 3 at a temperature of 20 Kelvin. MD was conducted using the LAMMPS package \cite{LAMMPS}. The LJ potential was set to be the same for all possible pairwise interactions with $\epsilon= 1.67E-21$ Joules and $\sigma= 3.4E-10$ meters with a radius of interaction of $2.5\sigma$. The remainder of this work uses dimensionless units unless otherwise noted ($E^*=E/\epsilon$, $T^*=Tk_B/\epsilon$, $\omega^*=\omega\sqrt{\sigma^2m_a/\epsilon}$, $k^*=km^{0.5}_a\sigma^2/(\epsilon^{0.5}k_B)$). The time step for molecular dynamics was set to 4.285 fs. The specific heat was set to be $k_B/V$ per mode, where V is the system volume of the molecular dynamics computational domain, because the mechanics considered here are classical and obey Maxwell-Boltzmann statistics. As temperature increases, anharmonicity of the potential energy causes the specific heat to deviate from $k_B/V$. However, the effect is small for these superlattices at the studied temperature\cite{jason_inpress}. The unit cells depicted in Fig.~\ref{fig:md_domain} are used as inputs for harmonic lattice dynamics (HLD) calculations, performed using the GULP package\cite{GULP}. Group velocities were calculated using finite differencing about a given frequency. The allowed wavevectors, $\pmb{\kappa}$, are selected in accordance with the number of repetitions of the unit cell used in the molecular dynamics simulations
+The allowed wavevectors, $\pmb{\kappa}$, are determined by the number of repetitions of the unit cell used in the molecular dynamics simulations
 %%%
 \begin{equation}\label{EQ:NMD:allowdkpt}
 \pmb{\kappa} = \sum_{\alpha} \pmb{b}_{\alpha} \frac{n_{\alpha}}{N_{\alpha}},
 \end{equation}
 %%%
-where $\pmb{b}_\alpha$ are the cubically orthogonal reciprocal lattice vectors and $ \frac{N_\alpha}{2} < n_\alpha \le \frac {N_\alpha}{2}$, where $n$ are integers and $N$ are now constant even integers. The wavevectors are taken to be in the first Brillouin zone. The eigenvectors, obtained from the lattice dynamics calculations, are used to construct a basis upon which the atomic velocities are projected to obtain the time series of the time derivative of the normal mode coordinate 
+where $\pmb{b}_\alpha$ are the cubically orthogonal reciprocal lattice vectors and $ \frac{N_\alpha}{2} < n_\alpha \le \frac {N_\alpha}{2}$, where $n$ are integers and $N$ are now constant even integers. The wavevectors are taken to be in the first Brillouin zone.
+
+Following the approach put forward by Landry and McGaughey \cite{PhysRevB.79.075316}, interspecies interfacial mixing was controlled by selecting the individual adjacent monolayers to an interface in the molecular dynamics computational cell and flipping the masses of randomly selected atoms until the desired concentrations were reached. For example, a mixing of 80/20 refers an original/foreign blend in an adjacent monolayer. 
+
+\subsection{Thermal conductivity predictions}
+Like previous superlattice studies \cite{Luckyanova16112012,doi:10.1021/nl202186y}, the phonon Boltzmann Transport Equation (BTE) under the single mode relaxation time approximation \cite{ziman_electrons_2001}, is used to predict the thermal conductivity in the $i$th direction
+%%%
+\begin{equation}\label{EQ:M:conductivity}
+\begin{split}
+k_{vib,\mathbf{i}}=&\sum_{\pmb{\kappa},\nu} c_{ph}\kv
+\pmb{v}^{2}_{g,\mathbf{i}}\kv \tau\kv.
+\end{split}
+\end{equation}
+%%%
+To obtain the required inputs for the BTE, the phonon lifetime, $\tau\kv$, and phonon group velocity, $\pmb{v}^{2}_{g,\mathbf{i}}\kv$, we follow the NMD procedure outlined by McGaughey\cite{PhysRevB.71.184305}, Turney \cite {PhysRevB.81.081411} and Larkin \cite{jason_inpress}. NMD calculations were conducted for a range of period lengths; $2\times2$, $4\times4$, $8\times8$ and $14\times14$ for Lennard-Jones argon superlattices with a mass ratio ($m_a/m_b$) of 3 at a temperature of 20 Kelvin. MD was conducted using the LAMMPS package \cite{LAMMPS}. The LJ potential was set to be the same for all possible pairwise interactions with $\epsilon= 1.67E-21$ Joules and $\sigma= 3.4E-10$ meters with a radius of interaction of $2.5\sigma$. The remainder of this work uses dimensionless units unless otherwise noted ($E^*=E/\epsilon$, $T^*=Tk_B/\epsilon$, $\omega^*=\omega\sqrt{\sigma^2m_a/\epsilon}$, $k^*=km^{0.5}_a\sigma^2/(\epsilon^{0.5}k_B)$). The time step for molecular dynamics was set to 4.285 fs. The specific heat was set to be $k_B/V$ per mode, where V is the system volume of the molecular dynamics computational domain, because the mechanics considered here are classical and obey Maxwell-Boltzmann statistics. As temperature increases, anharmonicity of the potential energy causes the specific heat to deviate from $k_B/V$. However, the effect is small for these superlattices at the studied temperature\cite{jason_inpress}. The unit cells depicted in Fig.~\ref{fig:md_domain} are used as inputs for harmonic lattice dynamics (HLD) calculations, performed using the GULP package\cite{GULP}. Group velocities were calculated using finite differencing about a given frequency
+%%%
+\begin{equation}\label{EQ:NMD:vg}
+\begin{split}
+\pmb{v}_{g}\kv=\frac{\partial \omega}{\partial \pmb{\kappa}}
+\end{split}
+\end{equation}
+%%%
+The eigenvectors, obtained from the lattice dynamics calculations, are used to construct a basis upon which the atomic velocities are projected to obtain the time series of the time derivative of the normal mode coordinate 
 %%%
 \begin{equation}\label{EQ:NMD:qdot}
 \begin{split}
@@ -277,7 +292,7 @@ where $\pmb{b}_\alpha$ are the cubically orthogonal reciprocal lattice vectors a
 \end{split}
 \end{equation}
 %%%
-where $\dot{u}_{\alpha}\lbt$ is the component of velocity of atom $b$ in the $l$ th unit cell in the $\alpha$ direction and $e^*\kvba$ denotes the complex conjugate of the $\alpha$ component for atom $b$ of the eigenvector for mode $\kv$. By taking the Fourier transform of the autocorrelation of the time derivative of the normal mode coordinate, the power spectrum is resolved \cite{dove_introduction_1993-3}
+where $\dot{u}_{\alpha}\lbt$ is the component of velocity of atom $b$ in the $l$ th unit cell in the $\alpha$ direction and $e^*\kvba$ denotes the complex conjugate of the $\alpha$ component for atom $b$ of the eigenvector for mode $\kv$. By taking the Fourier transform of the autocorrelation of the time derivative of the normal mode coordinate, the power spectrum is obtained \cite{dove_introduction_1993-3}
 %%%
 \begin{equation}\label{EQ:NMD:SED}
 \begin{split}
@@ -285,7 +300,7 @@ T\kvw=&\lim_{\tau_0\rightarrow\infty}\frac{1}{2\tau_0}\left|\frac{1}{\sqrt{2\pi}
 \end{split}
 \end{equation}
 %%% 
-The Fourier transform sampling window was set to $2^{16}$ time steps for all modes in $2\times 2$ and $4 \times 4$ and sampling windows of $2^{20}$ and $2^{22}$ time steps were used for modes with frequencies less than 1 for $8\times 8$ and $14 \times 14$ respectively. The lag between velocities samples was $2^5$ was found to be sufficient to capture the dynamics of highest frequency phonon modes. Five independent molecular dynamics simulations with different initial velocity seeds were run and the power spectrum was averaged over all seeds and Fourier transform sampling windows. Further averaging was conducted by imposing the symmetry of the irreducible Brillouin zone. In accordance with anharmonic theory\cite{maradudin_scattering_1962}, the power spectrum can be approximated to be a Lorentzian, for cases where $\Gamma\kv \ll \omega\kv$, of the form 
+In analyzing the MD velocity data, the Fourier transform sampling window was set to $2^{16}$ time steps for all modes in the $2\times 2$ and $4 \times 4$ superlattice for a total simulation time of $2^{20} and $2^{20}$ and $2^{22}$ time steps for modes with frequencies less than 1 for $8\times 8$ and $14 \times 14$ superlattices. The lag between velocity samples was $2^5$ time steps, which is sufficient to capture the dynamics of highest frequency phonon modes. Five independent MD simulations with different initial velocity seeds were run and the power spectrum was averaged over all seeds and Fourier transform sampling windows. Further averaging was conducted by imposing the symmetry of the irreducible Brillouin zone. In accordance with anharmonic theory\cite{maradudin_scattering_1962}, the power spectrum can be approximated to be a Lorentzian, for cases where $\Gamma\kv \ll \omega\kv$, of the form 
 %%%
 \begin{equation}\label{EQ:NMD:LOR}
 \begin{split}
@@ -293,11 +308,11 @@ T\kvw\approx&C_0\kv\frac{\Gamma\kv/\pi}{[\omega_0\kv-\omega]^2+\Gamma^2\kv},
 \end{split}
 \end{equation}
 %%%
-and thus fitting Eq.~\ref{EQ:NMD:LOR} to Eq.~\ref{EQ:NMD:SED} yields the phonon lifetime
+and thus fitting Eq.~(\ref{EQ:NMD:LOR}) to Eq.~(\ref{EQ:NMD:SED}) yields the phonon lifetime
 %%%
 \begin{equation}\label{EQ:lifetime}
 \begin{split}
-\tau\kv=&\frac{1}{2\Gamma\kv}
+\tau\kv=&\frac{1}{2\Gamma\kv}.
 \end{split}
 \end{equation}
 %%%
@@ -311,9 +326,74 @@ The phonon-phonon mean free path, in the phonon-as-a-particle interpretation, is
 \end{split}
 \end{equation}
 %%%
-%To validate the phonon properties, anharmonic lattice dynamics \cite{PhysRevB.79.064301} (ALD) was performed on the unmixed systems with the equivalent resolution of the Brouillin zone. 
 
-The DFPT study on superlattices by Garg et al. \cite{doi:10.1021/nl202186y} suggested that interfactial disorder might explain the discrepancy between theoretical and experimental predictions of thermal conductivity. DFPT cannot determine the effects of mixing because, for one, the analysis is based in reciprocal space and as such imposes the same geometric mixing to all unit cells. Luckyanova et al. \cite{Luckyanova16112012} adopted Tamura elastic mass defect scattering theory \cite{tamura_isotope_1983} to modify the DFPT predicted lifetimes
+
+Green-Kubo (GK) simulations, previously validated against the non-equilibrium direct method \cite {PhysRevB.79.075316}, were performed on the the same molecular domain, for consistency, that was used in the NMD approach for both mixed and non mixed systems. Ten independent MD simulations were performed for each superlattice systems (perfect and interfacial mixing). The same time step that was used for the MD portion of the NMD is used for GK. The total  simulation length is $1E6$ timesteps, with a correlation window of $5E4$ timesteps for $2 \times 2$ and $4 \times 4$ superlattices and $1E5$ timesteps for $8 \times 8$ and $14 \times 14$. In order to minimize the error in the GK predictions, the converged value of the thermal conductivity was specified using the first avalanche method described by Chen et al. \cite{Chen20102392}.
+
+To provide additional context between thermal conductivity prediction methods, anharmonic lattice dynamics (ALD) was performed using the unit cells for unmixed systems described in Sec. ~\ref{sec:a}. Using the third order force constants of the LJ potential and perturbation theory, the phonon lifetimes are extracted and thermal conductivity is estimated using Eq.~(\ref{EQ:M:conductivity}). The details of ALD can be found elsewhere \cite{PhysRevB.79.064301}.
+
+\section{Results}
+\subsection{Dispersion and Power Spectra}
+
+The unit cells described in the previous section generate dispersions similar to what can be seen in Figure~\ref{fig:dispersion}, with increasing number of branches as the number of atoms in the unit cell increases. Mini or stop gaps emerge at the Brouillin zone edges as a consequence of the folding of the branches \cite{PhysRevB.38.1427,PhysRevB.60.2627}. The flatness of the branches for $\omega > 15$ suggest the small contribution of these modes to thermal conductivity. The density of states shares the $\omega^2$ scaling at low frequencies as found with bulk LJ and Stilinger-Weber silicon systems \cite{}. The participation ratio, defined as $1/p\kv=\sum_{b,a}e\kvba^4$, does not indicate spatial localization for both perfect and mixed systems, which for completely delocalized modes is $O(1/card(\nu))$ and spatially localized is $O(1)$ \cite{PhysRevB.70.235214}. Participation ratio and density of states was not found to vary with superlattice period length.
+%%%
+\renewcommand{\topfraction}{0.7}
+\begin{figure*}[ht!]
+\begin{center}
+\scalebox{1}{ \includegraphics{/home/schuberm/Dropbox/git/plots.nogit/images/4p_dis_dos_pnum.eps}}
+\renewcommand{\figure}{Fig.}
+\caption{Dispersion for modes normal to the interfaces, density of states and inverse participation ratio of a 4x4 superlattice. Red squares represent select modes for $\pmb{\kappa}=[1,0,0]$.}
+\label{fig:dispersion}
+\end{center}
+\end{figure*}
+%%%$p\kv=1/ \sum_{b,a} e\kvba $
+
+Selected sample power spectrums are shown in Figure~\ref{fig:sed}. Note that while the peaks appear to be Lorentzian centered about single frequency, there are minor signatures at other frequencies. These signatures are attributed to the approximation that the normal mode of the harmonic system is equivalent to the normal mode of the anharmonic system. In the interfacial mixing cases, the intensity of the signatures becomes amplified, an indication of the shared implications of disorder (random masses with linear springs) and anharmonicity (ordered masses with non-linear springs) \cite{RevModPhys.53.175} upon phonon propagation, as experienced by electrons \cite{mott1961theory}. Modes 20 and 21 experience the largest disruptions, which may be a result of the large number of modes with similar frequencies, observed in the density of states shown in Figure~\ref{fig:dispersion} at $\omega=12$, available for these modes to interact and scatter with, as described in Allen-Feldmann theory \cite{allen_thermal_1993,feldman_thermal_1993-1}. Fitting a Lorentzian was deemed suitable for the mixed systems since the coefficient of determination value \cite{Cowpe20081066} for the most effected modes was about 0.9, but making the same assumption becomes increasingly questionable as the alloy limit is approached \cite{jason2013vc}. Furthermore, the peaks may broaden to such a point where the condition $\Gamma\kv \ll \omega\kv$ is no longer satisfied. The modified superlattice dispersion allows one to capture the effects of the secondary periodicity upon group velocities and lifetimes. Interfacial mixing, however, disrupts this secondary periodicity and thus alters the dispersion relation. The wavevector for the perfect system is not guaranteed to  correspond to the same wavevector in the mixed system. In other words, the superlattice phonons which emerge from the secondary periodicity are effectively \textit{transformed} by the interfacial mixing.
+%%%
+\begin{figure*}%[H!]
+\begin{center}
+\scalebox{1}{ \includegraphics{/home/schuberm/Dropbox/git/plots.nogit/images/sed.eps}}
+\renewcommand{\figure}{Fig.}
+\caption{(Colour online) Plots of the power spectrums for the selected modes along $\pmb{\kappa}=[1,0,0]$ of a $4\times4$ superlattice as indicated by the red square markers in the left frame of Figure~\ref{fig:dispersion}. Dark blue corresponds to a superlattice without mixing, red corresponds to mixing of 80/20 and light blue corresponds to mixing of 60/40. Lifetimes calculated from the fitting of the Lorentzian functions (not shown) for the three systems are presented.}
+\label{fig:sed}
+\end{center}
+\end{figure*}
+%%%
+
+%The consequences of using same set of eigenvectors were used in the NMD procedure for mixed and non-mixed $N\times N$ is observed in Figure~\ref{fig:sed}, where for modes at low and high frequency, the peaks remain well-defined, but some intermediate frequency modes become noticeably perturbed.  
+%%%
+%\begin{figure}%[H]
+%\begin{center}
+%\scalebox{0.8}{ \includegraphics{/home/schuberm/Dropbox/git/plots.nogit/images/NMD_v_ALD.eps}}
+%\renewcommand{\figure}{Fig.}
+%\caption{Comparison between lifetimes from NMD and ALD in a $4\times4$ superlattice without interfacial mixing.}
+%\label{FIG:NMD_v_ALD}
+%\end{center}
+%\end{figure}
+%%%
+%Confirm the validity of ALD
+
+%Figure~\ref{FIG:NMD_v_ALD} shows no systematic bias between ALD and NMD for shorter lifetimes, with some systematic scatter at the longer lifetimes towards ALD. In general, ALD lifetimes are expected to be larger than NMD lifetimes because ALD neglects the contribution from $n$ order phonon processes\cite{PhysRevB.79.064301,esfarjani2011heat}, where $n$ is greater than 3.
+
+\subsection{Lifetimes}
+
+Phonon lifetime as a function of unshifted harmonic frequency is shown in Figure ~\ref{FIG:lifetime}. As interspecies mixing is introduced, there is a downwards shift in phonon lifetimes, particularly for the higher frequency modes of short period superlattices, shifting some modes below the Ioffe-Regel criterion. As the modes for a given superlattice have a plane wave structure, enforced by the harmonic solution during the lattice dynamics calculation, reaching the Ioffe-Regel criterion is an indication not of spatial localization but rather temporal localization and can thus be considered to be non-propagating delocalized modes \cite{allen_thermal_1993}. Similar trends in the variation of lifetimes with frequency, dipping below the Ioffe-Regel criterion at intermediate frequencies and recovering at higher frequencies, have recently been observed in alloys \cite{jason2013vc}. Spatial localization has been previously invoked to explain the thermal conductivity trends in superlattices \cite{PhysRevB.61.3091} but this is not the case for the systems studied here.
+
+%%%
+\renewcommand{\textfraction}{0.0}
+\begin{figure}%[H]
+\begin{center}
+\scalebox{1}{ \includegraphics{/home/schuberm/Dropbox/git/plots.nogit/images/lifvomega_ai.eps}}
+\renewcommand{\figure}{Fig.}
+\caption{Lifetimes for perfect (blue) and mixed (red) systems. From top to bottom $2\times2$, $4\times4$, $8\times8$ and $14\times14$ superlattices. The black line corresponds to the Ioffe-Regel criterion, $2\pi\omega^{-1}$. The brown line corresponds to $\omega^{-2}$ scaling. The green line corresponds to $\omega^{-4}$ scaling. Vertical grey lines correspond to the maximum frequency observed in the bulk systems: for $m_a$, $\omega_a=24.7$ and for $m_b$, $\omega_b=14.3$. } 
+\label{FIG:lifetime}
+\end{center}
+\end{figure}
+%%%
+
+A Rayleigh scattering scaling ($\omega^{-4}$) is observed at larger frequencies for smaller superlattice period lengths ($2\times2$, $4\times4$). The $\omega^{-4}$ scaling was theoretically predicted to dominate long wavelength modes due to elastic defect scattering\cite{PhysRev.140.A1812,klemens_scattering_1955-3, klemens_thermal_1957-2}. Because the determination of $\tau\kv$ does not distinguish between phonon scattering mechanisms, the $\omega^{-4}$ scaling diverges at low frequencies and is replaced by $\omega^{-2}$ scaling. The $\omega^{-2}$ scaling corresponds the quadratic behaviour of the density of states a these frequencies \cite{Klemens_Thermal_1951}. For the larger period length superlattices ($8\times8$, $14\times14$), the non-mixed systems have two distinct $\omega^{-4}$ scalings which become smeared as interfacial mixing is introduced which terminate at the maximum frequencies of the bulk systems of $m_a$ and $m_b$.
+
+Superlattice studies using DFPT and the BTE by Garg et al. \cite{doi:10.1021/nl202186y} suggest that interfactial disorder might explain the discrepancy between theoretical predictions and experimental measurements of thermal conductivity. The DFPT approach to calculating phonon properties, however, cannot explicitly determine the effects of mixing because, for one, the analysis is based in reciprocal space and as such imposes the same geometric mixing to all unit cells. Luckyanova et al. \cite{Luckyanova16112012} adopted Tamura elastic mass defect scattering theory \cite{tamura_isotope_1983} to modify the DFPT predicted lifetimes through the Matthiesen rule
 %%%
 \begin{equation}\label{EQ:tau_eff}
 \begin{split}
@@ -340,56 +420,13 @@ g_2(b) = \sum_\mu c^{\mu}(b)\left(1-\frac{m^{\mu}(b)}{\bar{m}(b)}\right)^2,
 \end{equation}
 %%%
 with $m^\mu(b)$ being the mass of the $\mu$-th species and $\bar{m(b)}^{\mu}$ is the average mass for the $b$ atom in the unit cell. There are two atom types in the superlattice unit cell, $\mu=a,b$, such that the atom $m^b$ can be considered to be an ``isotope'' of the $m^a$ portion of the superlattice and the reverse is equally true. $g_2(b)$ was set to be zero if atom $b$ remained unmixed (for atoms that do not reside within one monolayer of the interface) since $m^{\mu}(b)=\bar{m}(b)$. The delta function in Eq.~\ref{EQ:tau_d} is broadened into a Lorenztian of width on the order of the frequency level spacing imposed by the finite size of the systems \cite{allen_thermal_1993}. The effective lifetimes obtained from Eq.~\ref{EQ:tau_eff} are compared to the NMD calculated lifetimes of interfacially mixed superlattices.
-%This convention is appropriate because of the perturbative approach used to derive Eq. ~\ref{TB:tau_d}, while we consider large disorder up to $c=0.5$.\cite{tamura_isotope_1983} 
 
-Green-Kubo (GK) simulations, previously validated against the non-equilibrium direct method \cite {PhysRevB.79.075316}, were performed on the the same molecular domain, for consistency, that was used in the NMD approach for both mixed and non mixed systems. The characteristic ringing in the heat current autocorrelation function inhibits the fitting of a functional form. In order to minimize the error in the GK predictions, the relative error function of the HCACF was used to determine the point at which the cumulative integral of the HCACF converges \cite{Chen20102392}.
-
-\section{Results}
-The unit cells described in the previous section generate dispersions similar to what can be seen in Figure~\ref{fig:dispersion}, with increasing number of branches as the number of atoms in the unit cell increases. Mini or stop gaps emerge at the Brouillin zone edges as a consequence of the folding of the branches \cite{PhysRevB.38.1427,PhysRevB.60.2627}. The flatness of the branches for $\omega > 15$ suggest the small contribution of these modes to thermal conductivity. The density of states shares the $\omega^2$ scaling at low frequencies as found with bulk LJ and Stilinger-Weber silicon systems \cite{}. The participation ratio, defined as $1/p\kv=\sum_{b,a}e\kvba^4$, does not indicate spatial localization for both perfect and mixed systems, which for completely delocalized modes is $O(1/card(\nu))$ and spatially localized is $O(1)$ \cite{PhysRevB.70.235214}. Participation ratio and density of states was not found to vary with superlattice period length.
-%%%
-\renewcommand{\topfraction}{0.7}
-\begin{figure*}[ht!]
-\begin{center}
-\scalebox{1}{ \includegraphics{/home/schuberm/Dropbox/git/plots.nogit/images/4p_dis_dos_pnum.eps}}
-\renewcommand{\figure}{Fig.}
-\caption{Dispersion for modes normal to the interfaces, density of states and inverse participation ratio of a 4x4 superlattice. Red squares represent select modes for $\pmb{\kappa}=[1,0,0]$.}
-\label{fig:dispersion}
-\end{center}
-\end{figure*}
-%%%$p\kv=1/ \sum_{b,a} e\kvba $
-
-Selected sample power spectrums are shown in Figure~\ref{fig:sed}. Note that while the peaks appear to be Lorentzian centered about single frequency, there are minor signatures at other frequencies. These signatures are attributed to the approximation that the normal mode of the harmonic system is equivalent to the normal mode of the anharmonic system. In the interfacial mixing cases, the intensity of the signatures becomes amplified, an indication of the shared implications of disorder (random masses with linear springs) and anharmonicity (ordered masses with non-linear springs) \cite{RevModPhys.53.175} upon phonon propagation, as experienced by electrons \cite{mott1961theory}. The degenerate modes 20 and 21 experience large disruption. This may be the result of the large number of modes with similar frequencies, observed in the density of states shown in Figure~\ref{fig:dispersion} at around $\omega=12$, available for these modes to interact and scatter with, as described in Allen-Feldmann theory \cite{allen_thermal_1993,feldman_thermal_1993-1}.
-%%%
-\begin{figure}[!h]
-\begin{center}
-\scalebox{1}{ \includegraphics{/home/schuberm/Dropbox/git/plots.nogit/images/sed.eps}}
-\renewcommand{\figure}{Fig.}
-\caption{(Colour online) Plots of the power spectrums for the selected modes along $\pmb{\kappa}=[1,0,0]$ of a $4\times4$ superlattice as indicated by the red square markers in the left frame of Figure~\ref{fig:dispersion}. Dark blue corresponds to a superlattice without mixing, red corresponds to mixing of 80/20 and light blue corresponds to mixing of 60/40. Lifetimes calculated from the fitting of the Lorentzian functions (not shown) for the three systems are presented.}
-\label{fig:sed}
-\end{center}
-\end{figure}
-%%%
-
-The eigenvectors were assumed to remain valid even with the introduction of interfacial mixing (the same set of eigenvectors were used in the NMD procedure for mixed and non-mixed $N\times N$). The consequences of such an assumption is observed in Figure~\ref{fig:sed}, where for modes at low and high frequency, the peaks remain well-defined, but some intermediate frequency modes become noticeably perturbed. Fitting a Lorentzian was deemed suitable for the mixed systems since the coefficient of determination value \cite{Cowpe20081066} for the most effected modes was about 0.9, but making the same assumption becomes increasingly questionable as the alloy limit is approached \cite{jason2013vc}. Furthermore, the peaks may broaden to such a point where the condition $\Gamma\kv \ll \omega\kv$ is no longer satisfied. The modified superlattice dispersion allows one to capture the effects of the secondary periodicity upon group velocities and lifetimes. Interfacial mixing, however, disrupts this secondary periodicity and thus alters the dispersion relation. As such, although some modes continue to propagate unperturbed in the mixed systems, others effectively cease to be represented by the superlattice dispersion. The wavevector for the perfect system is not guaranteed to  correspond to the same wavevector in the mixed system. This is observed in the power spectrum of select modes as seen in Figure~\ref{fig:sed}, where some peaks continue to be pronounced, indicative that these modes are hardly perturbed, while others diverge from the perfect case and begin to pick up frequencies associated with other modes that are present in the molecular dynamics simulations. In other words, the superlattice phonons which emerge from the secondary periodicity are effectively \textit{transformed} by the interfacial mixing.
-%%%
-%\begin{figure}%[H]
-%\begin{center}
-%\scalebox{0.8}{ \includegraphics{/home/schuberm/Dropbox/git/plots.nogit/images/NMD_v_ALD.eps}}
-%\renewcommand{\figure}{Fig.}
-%\caption{Comparison between lifetimes from NMD and ALD in a $4\times4$ superlattice without interfacial mixing.}
-%\label{FIG:NMD_v_ALD}
-%\end{center}
-%\end{figure}
-%%%
-%Confirm the validity of ALD
-
-%Figure~\ref{FIG:NMD_v_ALD} shows no systematic bias between ALD and NMD for shorter lifetimes, with some systematic scatter at the longer lifetimes towards ALD. In general, ALD lifetimes are expected to be larger than NMD lifetimes because ALD neglects the contribution from $n$ order phonon processes\cite{PhysRevB.79.064301,esfarjani2011heat}, where $n$ is greater than 3. 
 Table~\ref{TB:taud} shows no systematic difference between the lifetimes calculated using Eq~\ref{EQ:tau_eff} and lifetimes obtained from NMD under the assumption that the eigenvectors of the unmixed systems are valid for the mixed systems.
 %%%
 \begin{table}
 \begin{center}
-\begin{tabular}{ccccc}
-\hline\noalign{\smallskip}
+\begin{tabular*}{\textwidth}{c@{\extracolsep{\fill}}ccccc}
+\hline\hline\noalign{\smallskip}
 &\multicolumn{3}{c}{$N\times N$ Superlattice} \\
 \cline{2-5}\noalign{\smallskip}
 \hspace{1cm} & $2\times2$ & $4\times4$ & $8\times8$ & $14\times14$  \\
@@ -399,8 +436,8 @@ Table~\ref{TB:taud} shows no systematic difference between the lifetimes calcula
 RMSE $\sqrt{\frac{\sum_{\pmb{\kappa}\nu}(\tau_{eff}\kv-\tau_{mixed}\kv)^2}{n}}$ &0.65 & 1.21 & 2.09 & 5.42\\
 Mean $\overline{\tau_{mixed}\kv}$ &1.37 & 1.93 & 2.74 & 3.40\\
 Standard Deviation $\sigma[\tau_{mixed}\kv]$ &2.34 & 2.66 & 5.53 & 11.84\\
-\noalign{\smallskip}\hline
-\end{tabular}
+\noalign{\smallskip}\hline\hline
+\end{tabular*}
 \end{center}
 \renewcommand{\table}{Table.}
 \caption{The root-mean-square error between Tamura theory effective lifetimes and NMD mixed lifetimes. The mean and standard deviation of the NMD mixed lifetimes are provided for context. %ALD was not used for the 14x14 case due to the computational complexity of $\Omega (N_{uc}^4)$.}
@@ -409,45 +446,8 @@ Standard Deviation $\sigma[\tau_{mixed}\kv]$ &2.34 & 2.66 & 5.53 & 11.84\\
 \end{table}
 %%%
 
-Uncertainty in the NMD and GK prediction of thermal conductivity was found by determining the effect of removing a single molecular dynamics simulation seed upon the average estimate. From Table~\ref{TB:validate}, the predictions for superlattices without interfacial mixing lie within the uncertainty of one another. For superlattices with interfacial mixing, NMD predicts a lower in-plane thermal conductivity, differing systematically by about 20\% while the cross-plane predictions lie within the uncertainty. For the remainder of this work, the 80/20 system is used to discuss the effects of interfacial mixing upon phonon properties.
-%%%
-\begin{table}
-\begin{center}
-\begin{tabular}{lcc}
-\hline\noalign{\smallskip}
-&\multicolumn{2}{c}{Method} \\
-\cline{2-3}\noalign{\smallskip}
-$k$ & NMD  & GK  \\
-\noalign{\smallskip}\hline\noalign{\smallskip}
-Cross-Plane Perfect  & 0.24 $\pm$ 0.02 & 0.22 $\pm$ 0.04\\
-Cross-Plane 80/20    & 0.17  $\pm$ 0.01   &   0.18 $\pm$ 0.02 \\
-Cross-Plane 60/40    & 0.18  $\pm$ 0.01   &   0.19 $\pm$ 0.02 \\
-In-Plane Perfect   & 0.52 $\pm$ 0.03 & 0.54 $\pm$ 0.03  \\
-In-Plane 80/20  & 0.25 $\pm$ 0.02 & 0.30 $\pm$ 0.01  \\
-In-Plane 60/40   & 0.20 $\pm$ 0.02 & 0.26 $\pm$ 0.01  \\
-\noalign{\smallskip}\hline
-\end{tabular}
-\end{center}
-\renewcommand{\table}{Table.}
-\caption{A comparison of the thermal conductivity predictions [$Wm^{-1}K^{-1}$] predictions for a $4\times4$ superlattice.}
-\label{TB:validate}
-\end{table}
-%%%
-%%%
-\renewcommand{\textfraction}{0.0}
-\begin{figure}%[H]
-\begin{center}
-\scalebox{1}{ \includegraphics{/home/schuberm/Dropbox/git/plots.nogit/images/lifvomega_ai.eps}}
-\renewcommand{\figure}{Fig.}
-\caption{Lifetimes for perfect (blue) and mixed (red) systems. From top to bottom $2\times2$, $4\times4$, $8\times8$ and $14\times14$ superlattices. The black line corresponds to the Ioffe-Regel criterion, $2\pi\omega^{-1}$. The brown line corresponds to $\omega^{-2}$ scaling. The green line corresponds to $\omega^{-4}$ scaling. Vertical grey lines correspond to the maximum frequency observed in the bulk systems: for $m_a$, $\omega_a=24.7$ and for $m_b$, $\omega_b=14.3$. } 
-\label{FIG:lifetime}
-\end{center}
-\end{figure}
-%%%
 
-Phonon lifetime as a function of unshifted harmonic frequency is shown in Figure ~\ref{FIG:lifetime}. As interspecies mixing is introduced, there is a downwards shift in phonon lifetimes, particularly for the higher frequency modes of short period superlattices, shifting some modes below the Ioffe-Regel criterion. As the modes for a given superlattice have a plane wave structure, enforced by the harmonic solution during the lattice dynamics calculation, reaching the Ioffe-Regel criterion is an indication not of spatial localization but rather temporal localization and can thus be considered to be non-propagating delocalized modes \cite{allen_thermal_1993}. Similar trends in the variation of lifetimes with frequency, dipping below the Ioffe-Regel criterion at intermediate frequencies and recovering at higher frequencies, have recently been observed in alloys \cite{jason2013vc}. Spatial localization has been previously invoked to explain the thermal conductivity trends in superlattices \cite{PhysRevB.61.3091} but this is not the case for the systems studied here.
-
-A Rayleigh scattering scaling ($\omega^{-4}$) is observed at larger frequencies for smaller superlattice period lengths ($2\times2$, $4\times4$). The $\omega^{-4}$ scaling was theoretically predicted to dominate long wavelength modes due to elastic defect scattering\cite{PhysRev.140.A1812,klemens_scattering_1955-3, klemens_thermal_1957-2}. Because the determination of $\tau\kv$ does not distinguish between phonon scattering mechanisms, the $\omega^{-4}$ scaling diverges at low frequencies and is replaced by $\omega^{-2}$ scaling. The $\omega^{-2}$ scaling corresponds the quadratic behaviour of the density of states a these frequencies \cite{Klemens_Thermal_1951}. For the larger period length superlattices ($8\times8$, $14\times14$), the non-mixed systems have two distinct $\omega^{-4}$ scalings which become smeared as interfacial mixing is introduced which terminate at the maximum frequencies of the bulk systems of $m_a$ and $m_b$.
+\subsection{Thermal Conductivity}
 
 %%%
 \begin{figure}%[H]
@@ -462,17 +462,94 @@ A Rayleigh scattering scaling ($\omega^{-4}$) is observed at larger frequencies 
 
 From Figure~\ref{FIG:MFP_cp}, there is a clear reduction in the contribution to cross-plane thermal conductivity from modes with a MFP greater than the period length as period length increases. This trend is consistent with the theoretical predictions from Mahan that a minimum occurs as the transport behaviour shifts from a wave-regime to particle-regime \cite{PhysRevLett.84.927,PhysRevB.56.10754}. This same trend is observed in the contribution curves for the in-plane conductivity (not shown). The dimensional value of the peak MFP in perfect superlattices, for both in-plane and cross-plane, does not vary significantly as a function of period length. For short period superlattices, interfacial mixing shifts in the peak MFP towards shorter lengths and reduces its respective contribution. For mixed $2\times2$, $4\times4$ and $8\times8$ superlattices, the peak MFP is shifted arbitrarily close to the period length, indicative of the transition of thermal transport from superlattice phonons to thermal transport from anomalous phonons, which may or may not map to those belonging to the non-mixed dispersion, with MFPs on the order of the period length. This trend further supports the fact that superlattice phonons become disrupted by interfacial mixing, thereby diminishing the wave effects of the secondary periodicity upon cross-plane thermal conductivity. At large enough period lengths, the effect of interspecies mixing has a negligible effect on phonon MFP, as the corresponding lifetimes are less affected with increasing period length (Figure~\ref{FIG:lifetime}) because of the decrease in the number of interfaces per unit of volume \cite{PhysRevB.79.075316}.
 
-A computational limitation, due to time complexity of $O(card(\nu)^3)$, of NMD is the challenge in resolving longer wavelength modes because of the limited resolution of the Brillouin zone enforced by the MD domain. This effect is observed in Figure~\ref{FIG:MFP_cp}, where the finite number of resolved wavevectors leads to what would appear as noise in the contribution distribution at longer MFPs. Although nearly size-independent (within 10\%) thermal conductivity was achieved, careful analysis of these longer wavelength modes would be beneficial. This has been observed in other mode by mode analysis techniques, such as the real space force constant extraction from DFT method used by Esfarjani, where the limited resolution manifested in a stepwise behaviour of thermal conductivity accumulation function and the contribution of the unresolved long-wavelength modes is set to be linear, justifying the often used linear extrapolation procedure \cite{PhysRevB.84.085204}.
+The linear extrapolation procedure used to predict bulk thermal conductivities \cite{PhysRevB.81.214305} was not used in previous superlattice studies \cite{doi:10.1021/nl202186y,Luckyanova16112012} and is not used here. Size effects were estimated by performing a convergence study. NMD predictions in both cross-plane and in-plane thermal conductivities varied by less than 10\% for systems with more than $N_x=8$ superlattice UCs along the cross-plane and $N_y=N_z=6$ UCs along the in-plane ($N_x=10$ was used for $2\times2$ to resolve the lifetime scalings). ALD was performed using $N_x=N_y=N_z=8$. Due to the time complexity of ALD ($O((card(\nu)/3)^4)$) and NMD ($O(N_x \times N_y \times N_z card(\nu))$), increasing $N_i$ was computational prohibitive.
+
+A direct consequence of the finite size of the systems is the challenge in resolving longer wavelength modes because of the restricted resolution of the Brillouin zone enforced by the MD domain. This effect is observed in Figure~\ref{FIG:MFP_cp}, where the finite number of resolved wavevectors leads to what would appear as noise in the contribution distribution at longer MFPs. This has been observed in other mode by mode analysis techniques, such as the real space force constant extraction from DFT method used by Esfarjani, where the limited resolution manifested in a stepwise behaviour of thermal conductivity accumulation function and the contribution of the unresolved long-wavelength modes is set to be linear \cite{PhysRevB.84.085204}. Understanding size effects in superlattices warrant further work.
+
+\begin{table}
+\begin{center}
+\begin{tabular*}{\textwidth}{c@{\extracolsep{\fill}}ccccc}
+\hline\hline\noalign{\smallskip}
+&\multicolumn{3}{c}{$N\times N$ Superlattice} \\
+\cline{2-5}\noalign{\smallskip}
+\hspace{1cm} & $2\times2$ & $4\times4$ & $8\times8$ & $14\times14$  \\
+\noalign{\smallskip}\hline\noalign{\smallskip}
+NMD &0.2898 & 0.2387 & 0.319 & 0.3876\\
+GK & 0.2468 $\pm$ 0.0234 & 0.2216 $\pm$ 0.0396  &  0.2864 $\pm$ 0.0213  &  0.3932 $\pm$ 0.0264\\
+ALD & 0.255548 &	0.265652  &	0.32467	 &0.4425\\
+Thermal Circuit & 0.0691  &  0.1271  &  0.2194  &  0.3184\\
+\noalign{\smallskip}\hline
+NMD &0.1928 & 0.1741 & 0.2825 & 0.3869\\
+GK  & 0.1596 $\pm$ 0.0078  &  0.1778 $\pm$ 0.0174 &  0.2793 $\pm$ 0 &   0.4474 $\pm$ 0.0562\\
+Tamura & 0.2096 & 0.1515 & 0.2965 & 0.3746\\
+\hline\hline
+\end{tabular*}
+\end{center}
+\renewcommand{\table}{Table.}
+\caption{A comparison of the cross-plane thermal conductivity predictions [$Wm^{-1}K^{-1}$].}
+\label{TB:K_CP}
+\end{table}
+
+\begin{table}
+\begin{center}
+\begin{tabular*}{\textwidth}{c@{\extracolsep{\fill}}ccccc}
+\hline\hline\noalign{\smallskip}
+&\multicolumn{3}{c}{$N\times N$ Superlattice} \\
+\cline{2-5}\noalign{\smallskip}
+\hspace{1cm} & $2\times2$ & $4\times4$ & $8\times8$ & $14\times14$  \\
+\noalign{\smallskip}\hline\noalign{\smallskip}
+NMD &0.5185 & 0.5134 & 0.5576 & 0.5985\\
+GK &0.5261 $\pm$ 0.0340 &  0.5401 $\pm$ 0.0299 &  0.6082 $\pm$ 0.0531  &  0.6598 $\pm$ 0.0723 \\
+ALD & 0.551841	& 0.53142	&	0.590964	&0.631\\
+\noalign{\smallskip}\hline
+NMD &0.2061 & 0.2545 &	0.3651 & 0.4688\\
+GK & 0.1913 $\pm$ 0.0188 &  0.2960 $\pm$ 0.0107  & 0.4326 $\pm$ 0.0289 &  0.6227 $\pm$ 0.0731 \\   
+Tamura & 0.2297 & 0.2686 & 0.3787 &0.4548\\
+\hline\hline
+\end{tabular*}
+\end{center}
+\renewcommand{\table}{Table.}
+\caption{A comparison of the in-plane thermal conductivity predictions [$Wm^{-1}K^{-1}$].}
+\label{TB:K_IP}
+\end{table}
+
+Uncertainty in the NMD and GK prediction of thermal conductivity was found by determining the effect of removing a single molecular dynamics simulation seed upon the average estimate. From Table~\ref{TB:validate}, the predictions for superlattices without interfacial mixing lie within the uncertainty of one another. For superlattices with interfacial mixing, NMD predicts a lower in-plane thermal conductivity, differing systematically by about 20\% while the cross-plane predictions lie within the uncertainty. For the remainder of this work, the 80/20 system is used to discuss the effects of interfacial mixing upon phonon properties.
+%%%
+\begin{comment}
+\begin{table}
+\begin{center}
+\begin{tabular}{lcc}
+\hline\hline\noalign{\smallskip}
+&\multicolumn{2}{c}{Method} \\
+\cline{2-3}\noalign{\smallskip}
+$k$ & NMD  & GK  \\
+\noalign{\smallskip}\hline\noalign{\smallskip}
+Cross-Plane Perfect  & 0.24 $\pm$ 0.02 & 0.22 $\pm$ 0.04\\
+Cross-Plane 80/20    & 0.17  $\pm$ 0.01   &   0.18 $\pm$ 0.02 \\
+Cross-Plane 60/40    & 0.18  $\pm$ 0.01   &   0.19 $\pm$ 0.02 \\
+In-Plane Perfect   & 0.52 $\pm$ 0.03 & 0.54 $\pm$ 0.03  \\
+In-Plane 80/20  & 0.25 $\pm$ 0.02 & 0.30 $\pm$ 0.01  \\
+In-Plane 60/40   & 0.20 $\pm$ 0.02 & 0.26 $\pm$ 0.01  \\
+\noalign{\smallskip}\hline\hline
+\end{tabular}
+\end{center}
+\renewcommand{\table}{Table.}
+\caption{A comparison of the thermal conductivity predictions [$Wm^{-1}K^{-1}$] predictions for a $4\times4$ superlattice.}
+\label{TB:validate}
+\end{table}
+\end{comment}
+%%%
 
 %%%
-\begin{figure}%[H]
-\begin{center}
-\scalebox{1}{ \includegraphics{/home/schuberm/Dropbox/git/plots.nogit/images/KvL_tamura.eps}}
-\renewcommand{\figure}{Fig.}
-\caption{In-plane and cross-plane thermal conductivity predictions as a function of superlattice period length. Uncertainty in NMD and Tamura predictions not shown for clarity.}
-\label{FIG:NMD_v_GK}
-\end{center}
-\end{figure}
+%
+%\begin{figure}%[H]
+%\begin{center}
+%\scalebox{1}{ \includegraphics{/home/schuberm/Dropbox/git/plots.nogit/images/KvL_tamura.eps}}
+%\renewcommand{\figure}{Fig.}
+%\caption{In-plane and cross-plane thermal conductivity predictions as a function of superlattice period length. Uncertainty in NMD and Tamura predictions not shown for clarity.}
+%\label{FIG:NMD_v_GK}
+%\end{center}
+%\end{figure}
 %%%
 
 A comparison between the Green-Kubo, NMD and Tamura theory thermal conductivity predictions for both in-plane and cross-plane directions is shown in Figure~\ref{FIG:NMD_v_GK}. For short period superlattices, the in-plane and cross-plane predictions approach the alloy limit, with the mixed $2\times 2$ losing much of its anisotropy between the in-plane and cross-plane directions. As described by Mahan, the minimum cross-plane thermal conductivity occurs at a point where the average MFP is slightly greater than the period length \cite{PhysRevLett.84.927}, between $4 \times 4$ and $8 \times 8$. Although the in-plane thermal conductivity predictions from NMD and GK for systems without interfacial mixing agree, mixing introduces discrepancies that increase with superlattice period length which cannot be explained by statistical uncertainty (Table~\ref{TB:validate}) for both NMD and Tamura theory. This is another example of the breaking of the superlattice phonon modes which are expected to contribute to thermal transport.
