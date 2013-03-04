@@ -7,3 +7,5 @@
 *.log
 *.bbl
 *.blg
+*.gz
+*.dvi
