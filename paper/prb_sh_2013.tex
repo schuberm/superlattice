@@ -17,117 +17,23 @@
 \usepackage{verbatim}
 
 \graphicspath{
-{/Users/mullspace/Dropbox/git/plots.nogit/images}
+{/Users/mullspace/Dropbox/git/plots.nogit/images/}
+{/home/schuberm/Dropbox/git/plots.nogit/images/}
+{/home/mullspace/Dropbox/git/plots.nogit/images/}
 }
 
-%Definition of new commands
-\newcommand{\f}[2]{\ensuremath{\frac{\displaystyle{#1}}{\displaystyle{#2}}}}
-\newcommand{\lr}[1]{\langle{#1}\rangle}
-\newcommand{\colv}[2] {\left(\begin{array}{c} #1 \\ #2 \end{array}\right)}
-\renewcommand{\thefootnote}{\fnsymbol{footnote}}
-\newcommand{\be} {\begin{eqnarray}}
-\newcommand{\ee} {\end{eqnarray}}
 %--------------------------------------------------------------------------
-%EQ COMMANDS
+%DEFINE COMMANDS
 %--------------------------------------------------------------------------
-\newcommand{\two}{\mspace{-2.0mu}}
-\newcommand{\four}{\mspace{-4.0mu}}
-\newcommand{\plus}{\mspace{-4.5mu}+\mspace{-3.5mu}}
-\newcommand{\minus}{\mspace{-4.5mu}-\mspace{-3.5mu}}
-\newcommand{\pp}{'\mspace{-2.0mu}'}
-\newcommand{\xlb}[4]{#1\ifthenelse{\equal{#2}{0}}{}{_{\alpha #2}}
-\mspace{-2.0mu}\genfrac{(}{)}{0pt}{1}{\ifthenelse{\equal{#3}{0}}{0}{l #3}} 
-{\ifthenelse{\equal{#4}{0}}{0}{b #4}}}
-
-\newcommand{\xkv}[4]{#1\mspace{-5.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix}#2\four{}\four{}\mspace{-8.0mu}&\pmb{\kappa}#3\\&\nu 
-#4\end{smallmatrix}\mspace{-5.0mu}\right)}
-
-\newcommand{\evect}[6]{#1\mspace{-4.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix}#2\mspace{-8.0mu}&\pmb{\kappa} #3 &b #5\\&\nu #4 &
-\alpha #6\end{smallmatrix}\mspace{-5.0mu}\right)}
-
-\newcommand{\varmat}[8]{\mspace{-5.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix}\ifthenelse{\equal{#3}{0}}{\mspace{-8.0mu}&b_{#1}&b_{#2}
-\\&\alpha_{#1}&\alpha_{#2}} {\ifthenelse{\equal{#7}{0}}{#1\mspace{-8.0mu}&
-\pmb{\kappa}#2#3\mspace{-8.0mu}&\pmb{\kappa}#4#5\mspace{-8.0mu}&\pmb{\kappa}
-#6\\&\nu#2&\nu#4&\nu#6} {#1\mspace{-8.0mu}&\pmb{\kappa}#2#3\mspace{-8.0mu}&
-\pmb{\kappa}#4#5\mspace{-8.0mu}&\pmb{\kappa}#6#7\mspace{-8.0mu}&\pmb{\kappa}
-#8\\&\nu#2&\nu#4&\nu#6&\nu#8}}\end{smallmatrix}\mspace{-5.0mu}\right)}
-
 \newcommand{\EXP}[1]{\exp\mspace{-5.0mu}\left[#1\right]\mspace{-3.0mu}}
-
-\newcommand{\tpp}[2]{\left(\mspace{-2.0mu}\xkv{\omega}{}{}{}#1\xkv{\omega}
-{}{'}{'}#2\xkv{\omega}{}{\pp}{\pp}\mspace{-2.0mu}\right)}
 
 \newcommand{\SUM}[2]{\ifthenelse{\equal{#1}{0}}{\sum_{
 \alpha_{#2},b_{#2},l_{#2}}^{3,n,N}} {\ifthenelse{\equal{#1}{1}}{\sum_{
 \alpha_{#2},b_{#2}}^{3,n}}{\sum_{\pmb{\kappa}#2,\nu#2}^{N,3n}}}}
 
-\newcommand{\SUMprime}[2]{\ifthenelse{\equal{#1}{0}}
-{\sum_{\alpha_{#2},b_{#2},l_{#2}}^{3,n,N}} 
-{\ifthenelse{\equal{#1}{1}}{\sum_{\alpha_{#2},b_{#2}}^{3,n}}
-{\sum_{\pmb{\kappa}^{'}#2,\nu#2}^{N,3n}}}}
-
-\newcommand{\SUMalpha}[2]{\ifthenelse{\equal{#1}{0}}
-{\sum_{\alpha_{#2}}^{3}} {\ifthenelse{\equal{#1}{1}}
-{\sum_{\alpha_{#2},b_{#2}}^{3,n}}{\sum_{\pmb{\kappa}#2,\nu#2}^{N,3n}}}}
-
-\newcommand{\SUMalphap}[2]{\ifthenelse{\equal{#1}{0}}
-{\sum_{\alpha'_{#2}}^{3}} {\ifthenelse{\equal{#1}{1}}
-{\sum_{\alpha'_{#2},b'_{#2}}^{3,n}}{\sum_{\pmb{\kappa}#2,\nu#2}^{N,3n}}}}
-
-\newcommand{\SUMb}[2]{\ifthenelse{\equal{#1}{0}}{\sum_{b_{#2}}^{n}}
- {\ifthenelse{\equal{#1}{1}}{\sum_{\alpha_{#2},b_{#2}}^{3,n}}
-{\sum_{\pmb{\kappa}#2,\nu#2}^{N,3n}}}}
-
-\newcommand{\SUMbp}[2]{\ifthenelse{\equal{#1}{0}}{\sum_{b'_{#2}}^{n}}
- {\ifthenelse{\equal{#1}{1}}{\sum_{\alpha'_{#2},b'_{#2}}^{3,n}}
-{\sum_{\pmb{\kappa}#2,\nu#2}^{N,3n}}}}
-
-\newcommand{\SUMl}[2]{\ifthenelse{\equal{#1}{0}}{\sum_{l_{#2}}^{N}}
- {\ifthenelse{\equal{#1}{1}}{\sum_{\alpha_{#2},b_{#2}}^{3,n}}
-{\sum_{\pmb{\kappa}#2,\nu#2}^{N,3n}}}}
-
-\newcommand{\SUMlp}[2]{\ifthenelse{\equal{#1}{0}}{\sum_{l'_{#2}}^{N}}
- {\ifthenelse{\equal{#1}{1}}{\sum_{\alpha'_{#2},b'_{#2}}^{3,n}}
-{\sum_{\pmb{\kappa}#2,\nu#2}^{N,3n}}}}
-
-\newcommand{\abcdt}[5]{\mspace{-4.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix}&\ifthenelse{\equal{#1}{}}{a}{#1}&\ifthenelse
-{\equal{#3}{}}{c}{#3}\\&\ifthenelse{\equal{#2}{}}{b}{#2}&\ifthenelse
-{\equal{#4}{}}{d}{#4}\end{smallmatrix}\mspace{-2.0mu};\ifthenelse
-{\equal{#5}{}}{t}{#5}\right)}
-
-\newcommand{\abcd}[4]{\mspace{-4.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix}&\ifthenelse{\equal{#1}{}}{a}{#1}&\ifthenelse
-{\equal{#3}{}}{c}{#3}\\&\ifthenelse{\equal{#2}{}}{b}{#2}&\ifthenelse
-{\equal{#4}{}}{d}{#4}\end{smallmatrix}\mspace{-3.0mu}\right)}
-
-\newcommand{\abt}[3]{\mspace{-4.0mu}\left(\mspace{-8.0mu}\begin
-{smallmatrix}&\ifthenelse{\equal{#1}{}}{a}{#1} \\&\ifthenelse{
-\equal{#2}{}}{b}{#2}\end{smallmatrix}\mspace{-2.0mu};
-\ifthenelse{\equal{#3}{}}{t}{#3}\right)}
-
 \newcommand{\ab}[2]{\mspace{-4.0mu}\left(\mspace{-8.0mu}
 \begin{smallmatrix}&\ifthenelse{\equal{#1}{}}{a}{#1} \\&\ifthenelse
 {\equal{#2}{}}{b}{#2}\end{smallmatrix}\mspace{-3.0mu}\right)}
-
-\newcommand{\kvbat}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix} &\pmb{\kappa} &b \\ &\nu &\alpha\end{smallmatrix}
-\mspace{-2.0mu};t\right)}
-
-\newcommand{\kvbatp}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix} &\pmb{\kappa} &b' \\ &\nu &\alpha'\end{smallmatrix}
-\mspace{-2.0mu};t\right)}
-
-\newcommand{\kvbaw}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix} &\pmb{\kappa} &b \\ &\nu &\alpha\end{smallmatrix}
-\mspace{-2.0mu};\omega\right)}
-
-\newcommand{\kvbawp}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix} &\pmb{\kappa} &b' \\ &\nu &\alpha'\end{smallmatrix}
-\mspace{-2.0mu};\omega\right)}
 
 \newcommand{\kvba}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
 \begin{smallmatrix} &\pmb{\kappa} &b \\ &\nu &\alpha\end{smallmatrix}
@@ -137,37 +43,9 @@
 \begin{smallmatrix} &\pmb{\kappa}' &b \\ &\nu' &\alpha\end{smallmatrix}
 \mspace{-3.0mu}\right)}
 
-\newcommand{\kpvba}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix} &\pmb{\kappa}^{'} &b \\ &\nu &\alpha\end{smallmatrix}
-\mspace{-3.0mu}\right)}
-
-\newcommand{\kva}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix} &\pmb{\kappa} \\ &\nu &\alpha\end{smallmatrix}
-\mspace{-3.0mu}\right)}
-
-\newcommand{\kvap}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix} &\pmb{\kappa} \\ &\nu &\alpha'\end{smallmatrix}
-\mspace{-3.0mu}\right)}
-
-\newcommand{\kvb}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix} &\pmb{\kappa} &b \\ &\nu \end{smallmatrix}
-\mspace{-3.0mu}\right)}
-
-\newcommand{\kvbp}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix} &\pmb{\kappa} &b' \\ &\nu \end{smallmatrix}
-\mspace{-3.0mu}\right)}
-
 \newcommand{\kvt}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
 \begin{smallmatrix}&\pmb{\kappa} \\&\nu\end{smallmatrix}
 \mspace{-2.0mu},t\right)}
-
-\newcommand{\kvzero}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix}&\pmb{\kappa} \\&\nu\end{smallmatrix}
-\mspace{-2.0mu};0\right)}
-
-\newcommand{\kpvt}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix}&\pmb{\kappa}^{'} \\&\nu\end{smallmatrix}
-\mspace{-2.0mu};t\right)}
 
 \newcommand{\kvw}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
 \begin{smallmatrix}&\pmb{\kappa} \\&\nu\end{smallmatrix}
@@ -185,27 +63,8 @@
 \begin{smallmatrix}&\pmb{\kappa} \\&\omega\end{smallmatrix}
 \mspace{-3.0mu}\right)}
 
-\newcommand{\kpvp}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix}&\pmb{\kappa'} \\&\nu'\end{smallmatrix}
-\mspace{-3.0mu}\right)}
-
 \newcommand{\lbt}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
 \begin{smallmatrix}&l \\&b\end{smallmatrix}\mspace{-2.0mu};t\right)}
-
-\newcommand{\lbtp}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix}&l' \\&b'\end{smallmatrix}\mspace{-2.0mu};t\right)}
-
-\newcommand{\lt}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix}&l\end{smallmatrix}\mspace{-2.0mu};t\right)}
-
-\newcommand{\ltp}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix}&l'\end{smallmatrix}\mspace{-2.0mu};t\right)}
-
-\newcommand{\lb}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix}&l \\&b\end{smallmatrix}\mspace{-3.0mu}\right)}
-
-\newcommand{\lbp}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
-\begin{smallmatrix}&l' \\&b'\end{smallmatrix}\mspace{-3.0mu}\right)}
 %--------------------------------------------------------------------------
 %END COMMANDS
 %--------------------------------------------------------------------------
@@ -249,7 +108,7 @@ Each superlattice is identified by the fundamental repeated unit of material, co
 %%%
 \begin{figure}[ht!]
 \begin{center}
-\scalebox{0.5}{ \includegraphics{/Users/mullspace/Dropbox/git/plots.nogit/images/4p_ai.eps}}
+\scalebox{0.5}{ \includegraphics{4p_ai.eps}}
 \renewcommand{\figure}{Fig.}
 \caption{Atomic representation of a $4\times4$ superlattice for unmixed (top) and 80/20 interfacial mixing (bottom) cases. Green corresponds to $m_1$ and gray corresponds to $m_3$.}
 \label{fig:md_domain}
@@ -339,7 +198,7 @@ Phonon dispersion curves for the $4\times4$ superlattice is shown Fig.~\ref{fig:
 \renewcommand{\topfraction}{0.7}
 \begin{figure*}%[H]
 \begin{center}
-\scalebox{1}{ \includegraphics{/Users/mullspace/Dropbox/git/plots.nogit/images/4p_dis_dos_pnum.eps}}
+\scalebox{1}{ \includegraphics{4p_dis_dos_pnum.eps}}
 \renewcommand{\figure}{Fig.}
 \caption{Dispersion (A,B,C), density of states (D) and inverse participation ratio (E) of a $4\times4$ superlattice. Red squares represent select modes for Fig.~\ref{fig:sed}.}
 \label{fig:dispersion}
@@ -352,7 +211,7 @@ Selected sample power spectrums are shown in Fig.~\ref{fig:sed}. Note that while
 \renewcommand{\topfraction}{1.0}
 \begin{figure*}%[t]
 \begin{center}
-\scalebox{1}{ \includegraphics{/Users/mullspace/Dropbox/git/plots.nogit/images/sed.eps}}
+\scalebox{1}{ \includegraphics{sed.eps}}
 \renewcommand{\figure}{Fig.}
 \caption{(Colour online) Plots of the power spectrums for the selected modes as indicated by the red square markers in Fig.~\ref{fig:dispersion}(A-C). Dark blue corresponds to a superlattice without mixing, red corresponds to mixing of 80/20 and light blue corresponds to mixing of 60/40. Lifetimes calculated from the fitting of the Lorentzian functions (not shown) for the three systems are presented.}
 \label{fig:sed}
@@ -385,7 +244,8 @@ As interspecies mixing is introduced, there is a downwards shift in phonon lifet
 \renewcommand{\textfraction}{0.0}
 \begin{figure}%[H]
 \begin{center}
-\scalebox{1}{ \includegraphics{/Users/mullspace/Dropbox/git/plots.nogit/images/lifvomega.eps}}
+%\scalebox{1}{ \includegraphics{/Users/mullspace/Dropbox/git/plots.nogit/images/lifvomega.eps}}
+\scalebox{1}{ \includegraphics{lifvomega.eps}}
 \renewcommand{\figure}{Fig.}
 \caption{Lifetimes for NMD-perfect (blue) and NMD-mixed (red) and Tamura theory (green). The black line corresponds to the Ioffe-Regel criterion, $2\pi\omega^{-1}$. The brown line corresponds to $\omega^{-2}$ scaling. The green line corresponds to $\omega^{-4}$ scaling. Vertical grey lines correspond to the maximum frequency observed in the bulk systems: for $m_1$, $\omega_1=24.7$ and for $m_3$, $\omega_3=14.3$. } 
 \label{FIG:lifetime}
@@ -455,7 +315,7 @@ Standard Deviation $\sigma[\tau_{mixed}\kv]$ &2.34 & 2.66 & 5.53 & 11.84\\
 %%%
 \begin{figure}%[H]
 \begin{center}
-\scalebox{1}{ \includegraphics{/Users/mullspace/Dropbox/git/plots.nogit/images/MFP_cp.eps}}
+\scalebox{1}{ \includegraphics{MFP_cp.eps}}
 \renewcommand{\figure}{Fig.}
 \caption{Phonon mean free path normalized by the period length contribution to the cross-plane thermal conductivity. From top to bottom $2\times2$, $4\times4$, $8\times8$ and $14\times14$ superlattices. Color corresponds to those used in Fig.~\ref{FIG:lifetime}. Average MFP is reported; subscripts correspond to the color of marker (b:blue, r:red, g:green).}
 \label{FIG:MFP_cp}
