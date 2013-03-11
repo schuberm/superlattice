@@ -159,7 +159,31 @@ T\kvw=&\lim_{\tau_0\rightarrow\infty}\frac{1}{2\tau_0}\left|\frac{1}{\sqrt{2\pi}
 \end{split}
 \end{equation}
 %%% 
-In analyzing the MD velocity data, the Fourier transform sampling window was set to $2^{16}$ time steps for all modes in the $2 \times 2$ and $4 \times 4$ superlattice and for modes with frequencies greater than one in the $8\times 8$ and $14 \times 14$ superlattices, with a total simulation time of $2^{20}$ for five independent MD simulations with different initial velocity seeds. The Fourier transform sampling window was set to $2^{20}$ and $2^{22}$ time steps for modes with frequencies less than one for $8\times 8$ and $14 \times 14$ superlattices, with total simulation time of $2^{20}$ and $2^{22}$ for ten independent MD simulations with different initial velocity seeds. The lag between velocity samples was $2^5$ time steps, which is sufficient to capture the dynamics of highest frequency modes. The power spectrum was averaged over all seeds and Fourier transform sampling windows. Further averaging was conducted by imposing the symmetry of the irreducible BZ. In accordance with anharmonic theory,\cite{maradudin_scattering_1962} the power spectrum can be approximated to be a Lorentzian, for cases where $\Gamma\kv \ll \omega\kv$, of the form 
+In analyzing the MD velocity data, the Fourier transform sampling window was found to vary depending upon the superlattice system and the frequency of the modes. The number of timesteps for the FFT window and total simulation time are given in Table~\ref{TB:MD_time}.
+
+%set to $2^{16}$ time steps for all modes in the $2 \times 2$ and $4 \times 4$ superlattice and for modes with frequencies greater than one in the $8\times 8$ and $14 \times 14$ superlattices, with a total simulation time of $2^{20}$ for five independent MD simulations with different initial velocity seeds. The Fourier transform sampling window was set to $2^{20}$ and $2^{22}$ time steps for modes with frequencies less than one for $8\times 8$ and $14 \times 14$ superlattices, with total simulation time of $2^{20}$ and $2^{22}$ for ten independent MD simulations with different initial velocity seeds.
+%
+\begin{table}
+\begin{center}
+\begin{tabular*}{\textwidth}{c@{\extracolsep{\fill}}ccccc}
+\hline\hline\noalign{\smallskip}
+&\multicolumn{4}{c}{$N\times N$ Superlattice} \\
+\cline{3-6}\noalign{\smallskip}
+\hspace{1cm} & $2\times2$ & $4\times4$ & $8\times8$ & $14\times14$  \\
+\noalign{\smallskip}\hline\noalign{\smallskip}
+FFT window ($\omega > 1$) &2^16 & 2^16 & 2^16 & 2^16\\
+FFT window ($\omega < 1$) &2^{16} & 2^{16} & 2^{20} & 2^{22}\\
+Total MD time & 2^{20} &  2^{20} &  2^{20}  &  2^{22}\\
+Number of Seeds & 5 &  5 &  10  &  10\\
+\hline\hline
+\end{tabular*}
+\end{center}
+\renewcommand{\table}{Table.}
+\caption{Number of timestep in the FFT windows and total number of MD timesteps for each superlattice system.}
+\label{TB:MD_time}
+\end{table}
+%
+The lag between velocity samples was $2^5$ time steps, which is sufficient to capture the dynamics of highest frequency modes. The power spectrum was averaged over all seeds and Fourier transform sampling windows. Further averaging was conducted by imposing the symmetry of the irreducible BZ. In accordance with anharmonic theory,\cite{maradudin_scattering_1962} the power spectrum can be approximated to be a Lorentzian, for cases where $\Gamma\kv \ll \omega\kv$, of the form 
 %%%
 \begin{equation}\label{EQ:NMD:LOR}
 \begin{split}
@@ -188,7 +212,7 @@ HLD was performed using unit cells for perfect superlattices and the same set of
 \subsubsection{Green-Kubo and Anharmonic Lattice Dynamics}
 Green-Kubo (GK) simulations, previously validated against the non-equilibrium direct method,\cite {PhysRevB.79.075316} were performed on the the same molecular domain, for consistency, that was used in the NMD approach for both mixed and non mixed systems. Ten independent MD simulations were performed for each superlattice systems (perfect and mixed). The same time step that was used for the MD portion of the NMD is used for GK. The total  simulation length is $1\times 10^6$ timesteps, with a correlation window of $5\times 10^4$ timesteps for $2 \times 2$ and $4 \times 4$ superlattices and $1\times 10^5$ timesteps for $8 \times 8$ and $14 \times 14$. In order to minimize the error in the GK predictions, the converged value of the thermal conductivity was specified using the first avalanche method described by Chen et al. \cite{Chen20102392}
 
-To provide additional context between thermal conductivity prediction methods, anharmonic lattice dynamics (ALD) was performed using the unit cells for unmixed systems described in Sec.~\ref{SEC:sl_struc}. Using the third order force constants of the LJ potential and perturbation theory, the phonon lifetimes are extracted and thermal conductivity is estimated using Eq.~(\ref{EQ:M:conductivity}). The details of ALD can be found elsewhere.\cite{PhysRevB.79.064301}
+%To provide additional context between thermal conductivity prediction methods, anharmonic lattice dynamics (ALD) was performed using the unit cells for unmixed systems described in Sec.~\ref{SEC:sl_struc}. Using the third order force constants of the LJ potential and perturbation theory, the phonon lifetimes are extracted and thermal conductivity is estimated using Eq.~(\ref{EQ:M:conductivity}). The details of ALD can be found elsewhere.\cite{PhysRevB.79.064301}
 
 \section{Results}
 \subsection{Dispersion and Power Spectra}
@@ -345,7 +369,7 @@ A direct consequence of the finite size of the systems is the challenge in resol
 \multirow{4}{*}{Mixed} &NMD &0.19 & 0.17 & 0.28 & 0.39\\
 &GK  & 0.16 $\pm$ 0.01  &  0.18 $\pm$ 0.02 &  0.28 $\pm$ 0 &   0.45 $\pm$ 0.06\\
 &Tamura (NMD) & 0.21 & 0.15 & 0.30 & 0.37\\
-&Tamura (ALD) & 0.12 & 0.19 & 0.26 & 0.40\\
+%&Tamura (ALD) & 0.12 & 0.19 & 0.26 & 0.40\\
 \hline\hline
 \end{tabular*}
 \end{center}
@@ -369,7 +393,7 @@ A direct consequence of the finite size of the systems is the challenge in resol
 \multirow{4}{*}{Mixed} & NMD &0.21 & 0.25 &	0.37 & 0.47\\
 &GK & 0.19 $\pm$ 0.02 &  0.30 $\pm$ 0.01  & 0.43$\pm$ 0.03 &  0.62 $\pm$ 0.07 \\   
 &Tamura (NMD)& 0.22 & 0.27 & 0.38 &0.45\\
-&Tamura (ALD) & 0.17 & 0.25 & 0.34 &0.38\\
+%&Tamura (ALD) & 0.17 & 0.25 & 0.34 &0.38\\
 \hline\hline
 \end{tabular*}
 \end{center}
