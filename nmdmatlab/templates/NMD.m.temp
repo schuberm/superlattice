@@ -47,6 +47,8 @@ toc
     clear dummy  
 %Set mass array
     m = NMD.x0.pos(:,2);
+    [I]=find(m~=1);
+    m(I)=NMD.x0.mass(2);
 %EIGENVECTORS
     eigenvec =...
         dlmread(...

@@ -47,9 +47,9 @@ toc
 %Remove dummy
     clear dummy  
 %Set mass array
-%     m = repmat(NMD.mass(:,1),1,NMD.NUM_TSTEPS);     
-%    m = NMD.mass(:,1);
     m = NMD.x0.pos(:,2);
+    [I]=find(m~=1);
+    m(I)=NMD.x0.mass(2);
 %EIGENVECTORS
     eigenvec =...
         dlmread(...
