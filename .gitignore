@@ -8,4 +8,5 @@
 *.bbl
 *.blg
 *.gz
+*.out
 *.dvi
