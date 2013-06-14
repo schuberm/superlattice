@@ -1,0 +1,51 @@
+\documentclass[12pt,twoside]{article}
+\usepackage{fancyhdr}
+\usepackage{pslatex}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{setspace}
+\usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry}
+
+\pagestyle{empty}
+\lhead{Samuel Huberman}
+\chead{}
+\rhead{}
+\linespread{1.2}
+
+
+\begin{document}
+
+\begin{center}
+\textbf{Effect of Interspecies Mixing on Phonon Mean Free Paths in Superlattices}\\
+\footnotesize
+Samuel C. Huberman$^1$, Jason M. Larkin$^2$, Alan J. H. McGaughey$^2$ and Cristina H. Amon$^{1,2}$\\
+\textit{$^1$ Department of Mechanical \& Industrial Engineering, University of Toronto, Toronto, Canada M5S 3G8}\\
+\textit{$^2$ Department of Mechanical Engineering, Carnegie Mellon University, Pittsburgh, PA 15213}
+\end{center}
+\begin{spacing}{1.1}
+
+Tuning thermal conductivities for specific applications requires an understanding of thermal transport under operating conditions. In thermoelectrics, the measure of performance is the figure of merit which is directly proportional to electrical conductivity and inversely proportional to thermal conductivity. Superlattices are one of the rare crystalline structures which can maintain electrical integrity yet, in some special cases, obtain thermal conductivities below the alloy limit [1], thus making these periodic nanostructures ideal candidates for thermoelectric applications.
+
+Theoretical investigations have attributed the reduction of thermal conductivity in superlattices to the introduction of dispersion band folding [2, 3] or to the localization of phonon modes [4]. While offering some insight, these models rely upon the selection of a representative phonon mean free path. We explore phonon transport in superlattices without making such an approximation.
+
+Here we use molecular dynamics simulations and lattice dynamics calculations to investigate phonon properties (group velocities and lifetimes) in light/heavy Lennard-Jones argon superlattices. The normal mode decomposition algorithm, successful in predicting bulk phonon properties for both crystalline and amorphous LJ argon and Stillinger-Weber silicon [5], is extended to the superlattice geometry. With access to sufficient computational resources and the development of a parallelized workflow, the properties of each phonon mode for a given superlattice period length are determined and the respective contribution to thermal conductivity calculated. The predictions of both in-plane and cross-plane thermal conductivities for a range of period lengths from normal mode decomposition are validated against predictions from the Green-Kubo method [6].
+
+Interspecies mixing along the superlattice interfaces was introduced in the molecular dynamics domain and a shift to smaller phonon mean free paths in the thermal conductivity contribution distribution is observed. The predicted transition from systems with a majority of mean free paths being larger than the superlattice period length (coherent regime) to systems with a majority of mean free paths being smaller than the period length (incoherent regime) is resolved. Our results reveal the effects of the secondary periodicity in combination with interspecies mixing upon cross-plane and in-plane thermal conductivity.\newline
+
+\end{spacing}
+
+\begin{spacing}{1}
+\footnotesize
+\noindent
+%[1] W. Kim, J. Zide, A. Gossard, D. Klenov, S. Stemmer, A. Shakouri and A. Majumdar. Phys. Rev. Lett. \textbf{96}, 045901 (2006).\newline
+[1] W. S. Capinski, H. J. Maris, T. Ruf, M. Cardona, K. Ploog and D.S. Katzer, Phys. Rev. B \textbf{59} 8105 (1999). \newline
+[2] S. Tamura, Y. Tanaka and H. J. Maris, Phys. Rev. B \textbf{60} 2627 (1999). \newline
+[3] M. V. Simkin and G. D. Mahan, Phys. Rev. Lett. \textbf{84}, 927
+(2000).\newline
+[4] R. Venkatasubramanian, Phys. Rev. B \textbf{61} 3091 (2000). \newline
+[5]  J. M. Larkin, J. E. Turney, A. D. Massicotte, C. H. Amon and A. J. H. McGaughey, J. Phys.: Condens. Matter, \textit{submitted 2012}. \newline
+[6] E. S. Landry, M. I. Hussein and A. J. H. McGaughey, Phys. Rev. B. \textbf{77}, 184302 (2008). \newline
+
+\noindent Keywords: phonon, diffusion, mixing, superlattices, thermal conductivity, molecular dynamics, lattice dynamics
+\end{spacing}
+\end{document}
