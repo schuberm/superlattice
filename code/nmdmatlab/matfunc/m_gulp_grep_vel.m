@@ -3,7 +3,7 @@ function vel = m_gulp_grep_vel( gulp , x0)
 gulp.dk = 10E-5;
 
 %2) Input dk kpts to measure group velocities
-	vel = zeros(3*size(x0.ucell.cart,1),3);		
+vel = zeros(3*size(x0.ucell.cart,1),3);		
 
 for idim = 1:3
     if gulp.kpt(idim)==0.5

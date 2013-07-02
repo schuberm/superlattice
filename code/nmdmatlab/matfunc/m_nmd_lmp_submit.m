@@ -1,4 +1,3 @@
-
 function nmd_alloy_lmp_submit(NMD)
 
 
@@ -11,7 +10,7 @@ nmd_lmp_create_sh(NMD)
 
 for ish = 1:size(list.sh,1)
 
-qsub( strcat('qsub blah lmp',int2str(ish),'.sh');
+	qsub( strcat('qsub blah lmp',int2str(ish),'.sh');
 
 end
 
