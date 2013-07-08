@@ -77,77 +77,76 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\Large{Phonon Properties in Superlattices}
+\Large{Effect of Interfacial Mixing on Phonon Mean Free Paths in Superlattices}
 %\subtitle{SUBTITLE}
 
-\small{Samuel Huberman}\\
-\small{Supervisor: Prof. Cristina Amon}\\
+\small{Samuel C. Huberman$^1$, Jason M. Larkin$^2$, Alan J. H. McGaughey$^2$, Cristina H. Amon$^{1,2}$}\\
 
 \date{
 	\\
 	\vspace{1cm}
 	\today
 }
+\vspace{1cm}
+\tiny{1. University of Toronto}\\
+\tiny{2. Carnegie Mellon University}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Background and Motivation}
-\begin{frame}{Why Study Nanoscale Energy Transport}
-\begin{itemize}
-\item Power dissipation problem for CPUs and GPUs
-\begin{itemize}
-\item Increasing clock speed requires more power
-\end{itemize}
+\begin{frame}{Superlattices}
+Superlattices: nanostructered system of alternating layers of dissimilar materials
 \begin{figure}[t]
 \begin{center}
-\vspace*{-0.0cm}
-\scalebox{0.45}{\includegraphics{CPU_scaling.png}}
+%\vspace*{-0.8cm}
+\scalebox{0.4}{\includegraphics{4p__perfect_ai.eps}}
 \renewcommand{\figure}{Fig.}
-\label{fig:CPU_scaling}
-\caption{\small{Courtesy: Herb Sutter 2005}}
 \end{center}
 \end{figure}
-\end{itemize}
-\end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Funny things at the Nanoscale}
+Thermoelectric applications
 \begin{itemize}
-%\item As size of system decreases, transition from diffusive to ballistic transport
-\item Fourier's Law fails
+\item Improve performance the figure of merit by tuning the thermal conductivity
 %%%
 \begin{equation}\label{EQ:NMD:qdot}
 \begin{split}
-Q\neq-k\frac{dT}{dx}
+ZT=\frac{\sigma S^2 T}{k}
 \end{split}
 \end{equation}
 %%%
-
-\item Thermal conductivity becomes a function of length, $k(L)$, when $L \approx \Lambda \kv=|\textcolor{red}{\pmb{\mathrm{v}}_{g}\kv}|\textcolor{blue}{\tau\kv} $
-
-\begin{figure}[t]
-\begin{center}
-\vspace*{-0.0cm}
-\scalebox{0.75}{\includegraphics{boundaryscattering.pdf}}
-\renewcommand{\figure}{Fig.}
-\label{fig:CPU_scaling}
-\caption{Courtesy: Sellan et al. 2010}
-\end{center}
-\end{figure}
-
+%\item Effect of Period Length
+%\item Effect of Interfacial Species Mixing
+%\begin{itemize}
+%\item \textcolor{orange}{ASSUMPTION}: eigenvectors for perfect SL are valid for mixed SL
+%\end{itemize}
 \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{How to Study Nanoscale Energy Transport}
-Phonons
+System:
 \begin{itemize}
-\item Identified by the mode tuple $\kv$
-\item Propagating normal modes of vibration
-\item Delocalized in space [$1/p\kv \approx 1/3n$] and time [$2 \pi /\omega \kv < \tau \kv$]
+\item Methodology: Lattice dynamics and Molecular dynamics
+\item Interatomic potential: Lennard-Jones
+\item Mass ratio: 3
+\item Temperature: 20 K
+\end{itemize}
+\newline
+\newline
+Interested in the effects of
+\begin{itemize}
+\item Period Length
+\item Interfacial Species Mixing
+\end{itemize}
+on phonon properties
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{How to Study Nanoscale Energy Transport}
+%Phonons
+\begin{itemize}
 \item Thermal conductivity in terms of phonon properties:
 %%%
 \begin{equation}\label{EQ:M:conductivity}
@@ -167,50 +166,30 @@ k_{\mathbf{\alpha}}=&\sum_{\nu,\pmb{\kappa}}^{3n,N} \textcolor{teal}{c_{ph}\kv}
 \textcolor{orange}{CHALLENGE: PREDICT PHONON PROPERTIES}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Methodology}
-\begin{frame}{How to Study Nanoscale Energy Transport: Density Functional Theory}
-\begin{itemize}
-\item Recast Many-Body Schrodinger Eqn. as an optimization problem
-
-\item Perturb the Kohn-Sham Hamiltonian with $V(\pmb{\kappa})$
-
-\item Modeller's conundrum: accuracy at the expense of computational cost
-\end{itemize}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Methodology}
 \begin{frame}{How to Study Nanoscale Energy Transport: Molecular Dynamics}
-\begin{itemize}
-\item We use MD+HLD instead of DFT
+%Numerically integrate Newton's equation of motion with an empirically defined interaction
+%\begin{equation}
+%\begin{split}
+%\pmb{\mathrm{F}}&=m\pmb{\mathrm{a}}\\
+%\pmb{\mathrm{F}}&=\frac{dE}{d\pmb{\mathrm{r}}}\\
+%E(r)&=-4\epsilon\left[\left(\frac{\sigma}{r}\right)^6-\left(\frac{\sigma}{r}\right)^{12}\right]
+%\end{split}
+%\end{equation}
+We use MD+HLD instead of DF(P)T
 \begin{itemize}
 \item Computationally cheaper, reach larger length and time scales
-\item Includes higher-order terms (greater than 3rd order)
-\item Ability to include defects
+\item Includes higher-order terms
+\item Ability to explicitly include mixing
 \item Cross-comparison between modelling approaches
 \begin{itemize}
 \item Normal Mode Decomposition vs. Green-Kubo
 \end{itemize}
 \end{itemize}
-\end{itemize}
-\end{frame}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Methodology}
-\begin{frame}{How to Study Nanoscale Energy Transport: Molecular Dynamics}
-Numerically integrate Newton's equation of motion with an empirically defined interaction
-\begin{equation}
-\begin{split}
-%\pmb{\mathrm{F}}&=m\pmb{\mathrm{a}}\\
-\pmb{\mathrm{F}}&=\frac{dE}{d\pmb{\mathrm{r}}}\\
-E(r)&=-4\epsilon\left[\left(\frac{\sigma}{r}\right)^6-\left(\frac{\sigma}{r}\right)^{12}\right]
-\end{split}
-\end{equation}
 
 Since MD is classical, mode dependent volumetric specific heat is independent of temperature
 \begin{equation}\label{EQ:Cph}
@@ -238,7 +217,7 @@ Group velocities from finite differencing
 \end{split}
 \end{equation}
 
-Determined $\textcolor{teal}{c_{ph}\kv}$, $\textcolor{red}{\pmb{\mathrm{v}}_{g}\kv}$. What about $\textcolor{blue}{\tau\kv}$?
+Determined $\textcolor{teal}{c_{ph}\kv}$, $\textcolor{red}{\pmb{\mathrm{v}}_{g}\kv}$. What about $\textcolor{blue}{\tau\kv}$ (relaxation time)?
 \column{.2\textwidth}
 \begin{figure}[t]
 \begin{center}
@@ -255,41 +234,8 @@ Determined $\textcolor{teal}{c_{ph}\kv}$, $\textcolor{red}{\pmb{\mathrm{v}}_{g}\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Normal Mode Decomposition}
-\hspace*{-1cm}
-\begin{columns}
-\column{.7\textwidth}
-${\tau\kv}$ is the time between scattering events for mode $\kv$\\
-\vspace*{1cm}
-Perform coordinate transformation
-%%%
-\begin{equation}\label{EQ:NMD:qdot}
-\begin{split}
-\hspace*{-1cm}\dot{q}\kvt{}{}{}=&\sum_{\alpha, b, l}^{3,4L,N}\sqrt{\frac{m_b}{N}}\textcolor{red}{\dot{u}_{\alpha}\lbt}\textcolor{blue}{e^*\kvba}\EXP{i\pmb{\kappa}\cdot\mathbf{r}_0\lO}
-\end{split}
-\end{equation}
-%%%
-\hspace*{-1cm}\begin{itemize}
-\item $\textcolor{red}{\dot{u}_{\alpha}\lbt}$: Atomic velocity from MD
-\item $\textcolor{blue}{e^*\kvba}$: Eigenvector from LD
-\end{itemize}
-\column{.2\textwidth}
-\begin{figure}[t]
-\begin{center}
-\hspace*{-1cm}
-\vspace*{-1cm}
-\scalebox{0.25}{\includegraphics{eigplot.eps}}
-\renewcommand{\figure}{Fig.}
-\label{fig:bulk_dis_dos}
-\end{center}
-\end{figure}
-\end{columns}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Normal Mode Decomposition}
-Signal Processing:
-Power Spectrum = FFT(XCORR(q))
+%Signal Processing:
+%Power Spectrum = $FFT\left \{XCORR[\dot{q}\kvt{}{}{}] \right\} $
 %%%
 %\begin{equation}\label{EQ:NMD:SED}
 %\begin{split}
@@ -309,76 +255,35 @@ Power Spectrum = FFT(XCORR(q))
 %\textcolor{blue}{\tau\kv}=\frac{1}{2\Gamma\kv}
 %\end{equation}
 %%%
-
+Perform coordinate transformation:
+%%%
+\begin{equation}\label{EQ:NMD:qdot}
+\begin{split}
+\hspace*{-1cm}\dot{q}\kvt{}{}{}=&\sum_{\alpha, b, l}^{3,4L,N}\sqrt{\frac{m_b}{N}}\textcolor{red}{\dot{u}_{\alpha}\lbt}\textcolor{blue}{e^*\kvba}\EXP{i\pmb{\kappa}\cdot\mathbf{r}_0\lO}
+\end{split}
+\end{equation}
+\hspace*{-1cm}\begin{itemize}
+\item $\textcolor{red}{\dot{u}_{\alpha}\lbt}$: Atomic velocity from MD
+\item $\textcolor{blue}{e^*\kvba}$: Eigenvector from LD
+\end{itemize}
+Signal Processing:
+Power Spectrum = $FFT\left \{XCORR[\dot{q}\kvt{}{}{}] \right\} $
 \begin{figure}%[H]
 \begin{center}
 \includegraphics[width=0.4\textwidth]{expplot.eps} \hspace{0.05\textwidth}%
 \includegraphics[width=0.4\textwidth]{lorplot.eps} \\[2em]
 \end{center}
 \end{figure}
+%Signal Processing:
+%Power Spectrum = $FFT\left \{XCORR[\dot{q}\kvt{}{}{}] \right\} $
 \vspace*{-1cm}
-Fitting yields the lifetime
+%Fitting yields the lifetime
 %%%
-\begin{equation}\label{EQ:lifetime}
-\textcolor{blue}{\tau\kv}=\frac{1}{2\Gamma\kv}
-\end{equation}
+%\begin{equation}\label{EQ:lifetime}
+%\textcolor{blue}{\tau\kv}=\frac{1}{2\Gamma\kv}
+%\end{equation}
 %%%
-
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Bulk LJ at 20 K}
-\begin{columns}
-\column{.3\textwidth}
-\begin{table}[h!]
-\begin{center}
-\begin{tabular*}{\textwidth}{c@{\extracolsep{\fill}}c}
-\hline\hline\noalign{\smallskip}
-Method & $k$ \\
-\noalign{\smallskip}\hline\noalign{\smallskip}
-Green-Kubo & 1.2 \\
-NMD & 1.2 \\
-ALD & 1.3 \\
-\hline\hline
-\end{tabular*}
-\end{center}
-\renewcommand{\table}{Table.}
-\caption{A comparison of the thermal conductivity prediction methods for bulk LJ argon at 20 K [W/m K].}
-\label{TB:K_compare}
-\end{table}
-\column{.7\textwidth}
-\begin{figure}[t]
-\begin{center}
-\vspace*{-0.8cm}
-\scalebox{0.75}{\includegraphics{NMD_v_ALD_bulk.eps}}
-\renewcommand{\figure}{Fig.}
-\label{fig:nmd_v_ald_bulk}
-\end{center}
-\end{figure}
-\end{columns}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Superlattices}
-Thermoelectric applications
-\begin{itemize}
-\item Improve performance the figure of merit by tuning the thermal conductivity
-%%%
-\begin{equation}\label{EQ:NMD:qdot}
-\begin{split}
-ZT=\frac{\sigma S^2 T}{k}
-\end{split}
-\end{equation}
-%%%
-\item Effect of Period Length
-\item Effect of Interfacial Species Mixing
-\begin{itemize}
-\item \textcolor{orange}{ASSUMPTION}: eigenvectors for perfect SL are valid for mixed SL
-\end{itemize}
-\end{itemize}
-\end{frame}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -386,7 +291,7 @@ ZT=\frac{\sigma S^2 T}{k}
 \begin{figure}[t]
 \begin{center}
 \vspace*{-0.8cm}
-\scalebox{0.55}{\includegraphics{4p_ai.eps}}
+\scalebox{0.55}{\includegraphics{4p_ai_cross.eps}}
 \renewcommand{\figure}{Fig.}
 \label{fig:md_domain}
 \end{center}
@@ -474,21 +379,55 @@ In-plane (IP)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Lifetimes}
+\begin{frame}{Lifetimes}
+\begin{figure}[!h]
+\begin{center}
+\vspace*{-0.8cm}
+\hspace*{-1cm}
+\scalebox{0.65}{\includegraphics{lifvomega_defense_all.eps}}
+\renewcommand{\figure}{Fig.}
+\label{fig:lifetimes}
+\end{center}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{MFP}
-\begin{frame}{MFP}
-\begin{columns}
-\column{.3\textwidth}
-$\Lambda \kv=|{\pmb{\mathrm{v}}_{g}\kv}|{\tau\kv}$
-\column{.7\textwidth}
+\begin{frame}{MFP: $\Lambda \kv=|{\pmb{\mathrm{v}}_{g}\kv}|{\tau\kv}$}
+%\begin{columns}
+%\column{.3\textwidth}
+%$\Lambda \kv=|{\pmb{\mathrm{v}}_{g}\kv}|{\tau\kv}$
+%\column{.7\textwidth}
 \begin{figure}[t]
 \begin{center}
-\vspace*{-1.5cm}
-\scalebox{0.38}{\includegraphics{MFP_cp+ip_cuml_defense.eps}}
+\vspace*{-0.6cm}
+\scalebox{0.53}{\includegraphics{MFP_cp+ip_cuml_abs_defense.eps}}
 \renewcommand{\figure}{Fig.}
 \label{fig:mfp_contribution}
 \end{center}
 \end{figure}
-\end{columns}
+%\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{MFP}
+\begin{frame}{MFP: $\Lambda \kv=|{\pmb{\mathrm{v}}_{g}\kv}|{\tau\kv}$}
+%\begin{columns}
+%\column{.3\textwidth}
+%$\Lambda \kv=|{\pmb{\mathrm{v}}_{g}\kv}|{\tau\kv}$
+%\column{.7\textwidth}
+\begin{figure}[t]
+\begin{center}
+\vspace*{-0.6cm}
+\scalebox{0.53}{\includegraphics{MFP_cp+ip_cuml_abs_defense_all.eps}}
+\renewcommand{\figure}{Fig.}
+\label{fig:mfp_contribution}
+\end{center}
+\end{figure}
+%\end{columns}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -567,15 +506,10 @@ $\Lambda \kv=|{\pmb{\mathrm{v}}_{g}\kv}|{\tau\kv}$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions}
-\begin{frame}{Contributions \& Conclusions}
+\begin{frame}{Conclusions}
 \begin{itemize}
-\item Validated GK, DM, ALD, NMD methods for bulk
-\item Developed a simple, parallel and open source workflow for NMD
-\item First to apply and validate NMD for superlattices
-\begin{itemize}
-\item Bulk properties are not representative of short-period superlattices
+\item Bulk phonon properties are not representative of short-period superlattices
 \item Mixing \textit{breaks} secondary periodicity
-\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -596,31 +530,30 @@ $\Lambda \kv=|{\pmb{\mathrm{v}}_{g}\kv}|{\tau\kv}$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{NMD vs. ALD $4 \times 4$ SL}
-\begin{figure}[t]
-\begin{center}
-\vspace*{-0.8cm}
-\scalebox{0.75}{\includegraphics{NMD_v_ALD.eps}}
-\renewcommand{\figure}{Fig.}
-\label{fig:NMD_v_ALD_sl}
-\end{center}
-\end{figure}
-\end{frame}
+%\begin{frame}{NMD vs. ALD $4 \times 4$ SL}
+%\begin{figure}[t]
+%\begin{center}
+%\vspace*{-0.8cm}
+%\scalebox{0.75}{\includegraphics{NMD_v_ALD.eps}}
+%\renewcommand{\figure}{Fig.}
+%\label{fig:NMD_v_ALD_sl}
+%\end{center}
+%\end{figure}
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Green-Kubo}
-\begin{figure}[t]
-\begin{center}
-\vspace*{-0.8cm}
-\scalebox{0.75}{\includegraphics{GK_bulk.eps}}
-\renewcommand{\figure}{Fig.}
-\label{fig:GK_bulk}
-\end{center}
-\end{figure}
-\end{frame}
-
+%\begin{frame}{Green-Kubo}
+%\begin{figure}[t]
+%\begin{center}
+%\vspace*{-0.8cm}
+%\scalebox{0.75}{\includegraphics{GK_bulk.eps}}
+%\renewcommand{\figure}{Fig.}
+%\label{fig:GK_bulk}
+%\end{center}
+%\end{figure}
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -710,16 +643,16 @@ Number of Seeds & 5/5 &  5/5 & 5/10  &  5/10\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Experimental Measurements}
-\begin{figure}[t]
-\begin{center}
-\vspace*{-0.8cm}
-\scalebox{0.3}{\includegraphics{experiment.jpeg}}
-\renewcommand{\figure}{Fig.}
-\label{fig:GK_bulk}
-\caption{Diagram of Frequency Domain Thermoreflectance set-up. Courtesy: Regner et al. 2013 Nature Communications}
-\end{center}
-\end{figure}
-\end{frame}
+%\begin{frame}{Experimental Measurements}
+%\begin{figure}[t]
+%\begin{center}
+%\vspace*{-0.8cm}
+%\scalebox{0.3}{\includegraphics{experiment.jpeg}}
+%\renewcommand{\figure}{Fig.}
+%\label{fig:GK_bulk}
+%\caption{Diagram of Frequency Domain Thermoreflectance set-up. Courtesy: Regner et al. 2013 Nature Communications}
+%\end{center}
+%\end{figure}
+%\end{frame}
 
 \end{document}

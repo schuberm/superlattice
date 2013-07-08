@@ -1,0 +1,141 @@
+%\documentclass[twocolumn,showpacs,preprintnumbers,amsmath,amssymb, floatfix]{revtex4}
+\documentclass[aps,prb,preprint,preprintnumbers,amsmath,amssymb,floatfix,superscriptaddress]{revtex4}
+%\documentclass[aps,prb,twocolumn,superscriptaddress,preprintnumbers,amsmath,amssymb,floatfix]{revtex4}
+
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{ifthen}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{amsbsy}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{subfigure}
+\usepackage{booktabs}
+\usepackage{verbatim}
+\usepackage{hyperref}
+\usepackage{appendix}
+
+\graphicspath{
+{/Users/mullspace/Dropbox/git/plots.nogit/images/}
+{/home/schuberm/Dropbox/git/plots.nogit/images/}
+{/home/mull/Dropbox/git/plots.nogit/images/}
+{/home/mullspace/Dropbox/git/plots.nogit/images/}
+}
+
+%--------------------------------------------------------------------------
+%DEFINE COMMANDS
+%--------------------------------------------------------------------------
+\newcommand{\EXP}[1]{\exp\mspace{-5.0mu}\left[#1\right]\mspace{-3.0mu}}
+
+\newcommand{\SUM}[2]{\ifthenelse{\equal{#1}{0}}{\sum_{
+\alpha_{#2},b_{#2},l_{#2}}^{3,4L,N}} {\ifthenelse{\equal{#1}{1}}{\sum_{
+\alpha_{#2},b_{#2}}^{3,n}}{\sum_{\pmb{\kappa}#2,\nu#2}^{N,3n}}}}
+
+\newcommand{\ab}[2]{\mspace{-4.0mu}\left(\mspace{-8.0mu}
+\begin{smallmatrix}&\ifthenelse{\equal{#1}{}}{a}{#1} \\&\ifthenelse
+{\equal{#2}{}}{b}{#2}\end{smallmatrix}\mspace{-3.0mu}\right)}
+
+\newcommand{\kvba}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
+\begin{smallmatrix} &\pmb{\kappa} &b \\ &\nu &\alpha\end{smallmatrix}
+\mspace{-3.0mu}\right)}
+
+\newcommand{\kvbap}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
+\begin{smallmatrix} &\pmb{\kappa}' &b \\ &\nu' &\alpha\end{smallmatrix}
+\mspace{-3.0mu}\right)}
+
+\newcommand{\kvt}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
+\begin{smallmatrix}&\pmb{\kappa} \\&\nu\end{smallmatrix}
+\mspace{-2.0mu},t\right)}
+
+\newcommand{\kvw}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
+\begin{smallmatrix}&\pmb{\kappa} \\&\nu\end{smallmatrix}
+\mspace{-2.0mu},\omega\right)}
+
+\newcommand{\kv}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
+\begin{smallmatrix}&\pmb{\kappa} \\&\nu\end{smallmatrix}
+\mspace{-3.0mu}\right)}
+
+\newcommand{\kvp}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
+\begin{smallmatrix}&\pmb{\kappa'} \\&\nu'\end{smallmatrix}
+\mspace{-3.0mu}\right)}
+
+\newcommand{\kw}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
+\begin{smallmatrix}&\pmb{\kappa} \\&\omega\end{smallmatrix}
+\mspace{-3.0mu}\right)}
+
+\newcommand{\lbt}{\mspace{-4.0mu}\left(\mspace{-8.0mu}
+\begin{smallmatrix}&l \\&b\end{smallmatrix}\mspace{-2.0mu},t\right)}
+%--------------------------------------------------------------------------
+%END COMMANDS
+%--------------------------------------------------------------------------
+%--------------------------------------------------------------------------
+\begin{document}
+
+\title{Disruption of Superlattice Phonons by Interfacial Mixing}
+\author{Samuel C. Huberman}
+\affiliation{Department of Mechanical \& Industrial Engineering, University of Toronto, 
+Toronto, Ontario M5S 3G8, Canada}
+\author{Jason M. Larkin}
+\affiliation{Department of Mechanical Engineering\\Carnegie Mellon University\\Pittsburgh, PA 15213}
+\author{Alan J. H. McGaughey}
+%\email{mcgaughey@cmu.edu}
+\affiliation{Department of Mechanical Engineering\\Carnegie Mellon University\\Pittsburgh, PA 15213}
+\author{Cristina H. Amon}
+\affiliation{Department of Mechanical \& Industrial Engineering, University of Toronto, 
+Toronto, Ontario M5S 3G8, Canada}
+\affiliation{Department of Mechanical Engineering\\Carnegie Mellon University\\Pittsburgh, PA 15213}
+
+\date{\today}% It is always \today, today,
+             %  but any date may be explicitly specified
+\vspace{14mm}
+  
+\begin{abstract}
+
+We use normal mode decomposition to obtain phonon properties from quasi-harmonic lattice dynamics calculations and classical molecular dynamics simulations in unstrained Lennard-Jones argon superlattices with perfect and mixed interfaces. Debye scaling ($\omega^{-2}$) of phonon lifetimes at low frequencies in both perfect and mixed superlattices and Rayleigh scaling ($\omega^{-4}$) for intermediate frequencies in mixed superlattices is observed. For short period superlattices, lifetimes below the Ioffe-Regel limit are observed. The relaxation-time approximation of the Boltzmann transport equation is used to predict cross-plane and in-plane thermal conductivity. We find that using a dispersion relation which includes the secondary periodicity is required to predict thermal conductivity. The assumption of perturbative disorder, where Tamura elastic mass defect scattering theory can be applied, was found to be valid for predicting cross-plane thermal conductivities but not in-plane thermal conductivities in mixed superlattices. 
+
+\end{abstract}
+\maketitle
+%%%%
+\section{Introduction}
+
+%%%
+\begin{figure}[t!]
+\begin{center}
+\scalebox{0.5}{ \includegraphics{MFP_cp+ip_cuml_abs_defense.eps}}
+\renewcommand{\figure}{Fig.}
+\end{center}
+\end{figure}
+%%%
+
+%%%
+\begin{figure}[t!]
+\begin{center}
+\scalebox{0.5}{ \includegraphics{MFP_cp+ip_cuml_abs_defense_all.eps}}
+\renewcommand{\figure}{Fig.}
+\end{center}
+\end{figure}
+%%%
+
+%%%
+\begin{figure}[t!]
+\begin{center}
+\scalebox{0.5}{ \includegraphics{lifvomega_defense.eps}}
+\renewcommand{\figure}{Fig.}
+\end{center}
+\end{figure}
+%%%
+
+%%%
+\begin{figure}[t!]
+\begin{center}
+\scalebox{0.5}{ \includegraphics{lifvomega_defense_all.eps}}
+\renewcommand{\figure}{Fig.}
+\end{center}
+\end{figure}
+%%%
+
+\end{document}
+
