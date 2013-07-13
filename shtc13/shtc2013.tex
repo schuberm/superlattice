@@ -106,7 +106,7 @@ Superlattices: nanostructered system of alternating layers of dissimilar materia
 
 Thermoelectric applications
 \begin{itemize}
-\item Improve performance the figure of merit by tuning the thermal conductivity
+\item Improve performance by tuning the thermal conductivity
 %%%
 \begin{equation}\label{EQ:NMD:qdot}
 \begin{split}
@@ -124,27 +124,7 @@ ZT=\frac{\sigma S^2 T}{k}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{How to Study Nanoscale Energy Transport}
-System:
-\begin{itemize}
-\item Methodology: Lattice dynamics and Molecular dynamics
-\item Interatomic potential: Lennard-Jones
-\item Mass ratio: 3
-\item Temperature: 20 K
-\end{itemize}
-\newline
-\newline
-Interested in the effects of
-\begin{itemize}
-\item Period Length
-\item Interfacial Species Mixing
-\end{itemize}
-on phonon properties
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{How to Study Nanoscale Energy Transport}
+\begin{frame}{BTE under RTA}
 %Phonons
 \begin{itemize}
 \item Thermal conductivity in terms of phonon properties:
@@ -170,7 +150,7 @@ k_{\mathbf{\alpha}}=&\sum_{\nu,\pmb{\kappa}}^{3n,N} \textcolor{teal}{c_{ph}\kv}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Methodology}
-\begin{frame}{How to Study Nanoscale Energy Transport: Molecular Dynamics}
+\begin{frame}{Molecular dynamics (MD) simulations and Harmonic Lattice dynamics (HLD) calculations}
 %Numerically integrate Newton's equation of motion with an empirically defined interaction
 %\begin{equation}
 %\begin{split}
@@ -179,10 +159,8 @@ k_{\mathbf{\alpha}}=&\sum_{\nu,\pmb{\kappa}}^{3n,N} \textcolor{teal}{c_{ph}\kv}
 %E(r)&=-4\epsilon\left[\left(\frac{\sigma}{r}\right)^6-\left(\frac{\sigma}{r}\right)^{12}\right]
 %\end{split}
 %\end{equation}
-We use MD+HLD instead of DF(P)T
 \begin{itemize}
 \item Computationally cheaper, reach larger length and time scales
-\item Includes higher-order terms
 \item Ability to explicitly include mixing
 \item Cross-comparison between modelling approaches
 \begin{itemize}
@@ -199,7 +177,7 @@ Since MD is classical, mode dependent volumetric specific heat is independent of
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{How to Study Nanoscale Energy Transport: Lattice Dynamics}
+\begin{frame}{Harmonic Lattice Dynamics}
 \begin{columns}
 \column{.7\textwidth}
 %$D(\pmb{\kappa})$ contains information about the masses, the geometry and second-order derivatives of interatomic potential.
@@ -262,11 +240,12 @@ Perform coordinate transformation:
 \hspace*{-1cm}\dot{q}\kvt{}{}{}=&\sum_{\alpha, b, l}^{3,4L,N}\sqrt{\frac{m_b}{N}}\textcolor{red}{\dot{u}_{\alpha}\lbt}\textcolor{blue}{e^*\kvba}\EXP{i\pmb{\kappa}\cdot\mathbf{r}_0\lO}
 \end{split}
 \end{equation}
-\hspace*{-1cm}\begin{itemize}
+\hspace*{-2cm}
+\vspace*{-0.5cm}
+\begin{itemize}
 \item $\textcolor{red}{\dot{u}_{\alpha}\lbt}$: Atomic velocity from MD
 \item $\textcolor{blue}{e^*\kvba}$: Eigenvector from LD
 \end{itemize}
-Signal Processing:
 Power Spectrum = $FFT\left \{XCORR[\dot{q}\kvt{}{}{}] \right\} $
 \begin{figure}%[H]
 \begin{center}
@@ -287,15 +266,37 @@ Power Spectrum = $FFT\left \{XCORR[\dot{q}\kvt{}{}{}] \right\} $
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{System and Effects}
+System:
+\begin{itemize}
+\item Interatomic potential: Lennard-Jones
+\item Mass ratio: 3
+\item Temperature: 20 K
+\end{itemize}
+\newline
+\newline
+Interested in the effects of
+\begin{itemize}
+\item Superlattice period length
+\item Interfacial species mixing
+\end{itemize}
+on phonon properties
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\small{4x4 MD Domain}}
 \begin{figure}[t]
 \begin{center}
 \vspace*{-0.8cm}
-\scalebox{0.55}{\includegraphics{4p_ai_cross.eps}}
+\scalebox{0.5}{\includegraphics{4p_ai_cross.eps}}
 \renewcommand{\figure}{Fig.}
 \label{fig:md_domain}
 \end{center}
 \end{figure}
+
+\hspace{-0.5cm}\textcolor{orange}{ASSUMPTION}: eigenvectors for perfect SL can be used for mixed SL
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -353,7 +354,7 @@ In-plane (IP)
 %\begin{center}
 \vspace*{-1.2cm}
 \hspace*{1.9cm}
-\scalebox{0.60}{\includegraphics{sed.eps}}
+\scalebox{0.60}{\includegraphics{sed_shtc.eps}}
 \renewcommand{\figure}{Fig.}
 %\caption{(Colour online) Spectral energy density plots for the selected modes along k=[1,0,0] of a 4x4 superlattice as shown in Figure~\ref{fig:dispersion}. Dark blue corresponds to a superlattice without mixing, red corresponds to mixing of 80/20 and light blue corresponds to mixing of 60/40.}
 \label{fig:sed}
@@ -364,7 +365,7 @@ In-plane (IP)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Lifetimes}
+\subsection{Perfect superlattice lifetimes}
 \begin{frame}{Lifetimes}
 \begin{figure}[!h]
 \begin{center}
@@ -379,7 +380,22 @@ In-plane (IP)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Lifetimes}
+\subsection{Bulk Lifetimes}
+\begin{frame}{Lifetimes}
+\begin{figure}[!h]
+\begin{center}
+\vspace*{-0.8cm}
+\hspace*{-1cm}
+\scalebox{0.65}{\includegraphics{lifvomega_defense_bulk.eps}}
+\renewcommand{\figure}{Fig.}
+\label{fig:lifetimes}
+\end{center}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Mixed superlattice lifetimes}
 \begin{frame}{Lifetimes}
 \begin{figure}[!h]
 \begin{center}
@@ -508,8 +524,12 @@ In-plane (IP)
 \section{Conclusions}
 \begin{frame}{Conclusions}
 \begin{itemize}
-\item Bulk phonon properties are not representative of short-period superlattices
+\item Agreement between GK and NMD for perfect superlattices
+\item Agreement between Tamura theory and NMD for mixed superlattices
+\item Discrepancy between GK and NMD (and Tamura theory) for mixed superlattices
+\begin{itemize}
 \item Mixing \textit{breaks} secondary periodicity
+\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -521,8 +541,7 @@ In-plane (IP)
 \item Prof. Cristina Amon
 \item Prof. Alan McGaughey
 \item Jason Larkin
-\item Daniel Sellan
-\item Atoms Lab
+\item Atoms Lab  (UofT) and NPTL (CMU)
 \item Funding from NSERC, OGS and AMD
 \end{itemize}
 \end{frame}
