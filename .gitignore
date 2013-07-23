@@ -13,3 +13,7 @@
 *.nav
 *.snm
 *.toc
+*.tui
+*.mp
+*.top
+*.rtf

@@ -86,11 +86,12 @@
 %\begin{comment}
 \defbeamertemplate*{headline}{uoft}%
 {
-  \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.6em]{headerline title}
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.3em]{headerline title}
     %\begin{minipage}{\beamer@uoft@restofmenuwidth} %{\beamer@uoft@frametitle}
         %{\tiny{\bfseries {\insertframetitle{}} }}%
     %\end{minipage}
-    \insertframetitle{}
+    \large{\insertframetitle{}}
+    %\hspace{2ex}\insertframetitle{} \hspace{1ex}\hrulefill 
     %\hspace{0px}
     %\begin{minipage}{\beamer@uoft@menuwidth}
       %\begin{flushright}
@@ -147,8 +148,8 @@
 
 \defbeamertemplate*{frametitle}{}
 {
-  \begin{beamercolorbox}[sep=0ex,ht= 2.5ex, wd=\paperwidth]{}
-  %  \hspace{2ex}\insertframetitle{} \hspace{1ex}\hrulefill %
+  \begin{beamercolorbox}[sep=0ex,ht= 2ex, wd=\paperwidth]{}
+    %\hspace{2ex}\insertframetitle{} \hspace{1ex}\hrulefill %
   \end{beamercolorbox}%
 }
 

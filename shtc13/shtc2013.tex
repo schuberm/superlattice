@@ -77,7 +77,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\Large{Effect of Interfacial Mixing on Phonon Mean Free Paths in Superlattices}
+\Large{Effect of Interspecies Mixing on Phonon Mean Free Paths in Superlattices}
 %\subtitle{SUBTITLE}
 
 \small{Samuel C. Huberman$^1$, Jason M. Larkin$^2$, Alan J. H. McGaughey$^2$, Cristina H. Amon$^{1,2}$}\\
@@ -88,8 +88,10 @@
 	\today
 }
 \vspace{1cm}
-\tiny{1. University of Toronto}\\
-\tiny{2. Carnegie Mellon University}
+\small{1. Department of Mechanical and Industrial Engineering, University of Toronto}\\
+\small{2. Department of Mechanical Engineering, Carnegie Mellon University}\\
+\\
+Funding from NSERC, OGS and AMD
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -103,16 +105,17 @@ Superlattices: nanostructered system of alternating layers of dissimilar materia
 \renewcommand{\figure}{Fig.}
 \end{center}
 \end{figure}
-
+\vspace*{-0.8cm}
 Thermoelectric applications
 \begin{itemize}
-\item Improve performance by tuning the thermal conductivity
+\item Improve performance by tuning the thermal conductivity\footnote{Kim et al., Physical Review Letters, 2006.}
 %%%
-\begin{equation}\label{EQ:NMD:qdot}
+\begin{equation*}\label{EQ:NMD:qdot}
 \begin{split}
 ZT=\frac{\sigma S^2 T}{k}
 \end{split}
-\end{equation}
+\end{equation*}
+\textcolor{orange}{QUESTION: How does mixing and period length effect thermal conductivity?}\\
 %%%
 %\item Effect of Period Length
 %\item Effect of Interfacial Species Mixing
@@ -127,14 +130,14 @@ ZT=\frac{\sigma S^2 T}{k}
 \begin{frame}{BTE under RTA}
 %Phonons
 \begin{itemize}
-\item Thermal conductivity in terms of phonon properties:
+\item Thermal conductivity in terms of phonon properties\footnote{Ziman, \textit{Electrons and Phonons}, 2003.}:
 %%%
-\begin{equation}\label{EQ:M:conductivity}
+\begin{equation*}\label{EQ:M:conductivity}
 \begin{split}
 k_{\mathbf{\alpha}}=&\sum_{\nu,\pmb{\kappa}}^{3n,N} \textcolor{teal}{c_{ph}\kv}
 \textcolor{red}{v^{2}_{g,\mathbf{\alpha}}\kv} \textcolor{blue}{\tau\kv}
 \end{split}
-\end{equation}
+\end{equation*}
 %%%
 \begin{itemize}
 \item $\textcolor{teal}{c_{ph}\kv}$: Mode-dependent volumetric specific heat
@@ -143,7 +146,7 @@ k_{\mathbf{\alpha}}=&\sum_{\nu,\pmb{\kappa}}^{3n,N} \textcolor{teal}{c_{ph}\kv}
 \end{itemize}
 
 \end{itemize}
-\textcolor{orange}{CHALLENGE: PREDICT PHONON PROPERTIES}
+\textcolor{orange}{CHALLENGE: PREDICT PHONON PROPERTIES}\\
 \end{frame}
 
 
@@ -151,51 +154,52 @@ k_{\mathbf{\alpha}}=&\sum_{\nu,\pmb{\kappa}}^{3n,N} \textcolor{teal}{c_{ph}\kv}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Methodology}
 \begin{frame}{Molecular dynamics (MD) simulations and Harmonic Lattice dynamics (HLD) calculations}
-%Numerically integrate Newton's equation of motion with an empirically defined interaction
-%\begin{equation}
+%Numerically integrate Newton's equation* of motion with an empirically defined interaction
+%\begin{equation*}
 %\begin{split}
 %\pmb{\mathrm{F}}&=m\pmb{\mathrm{a}}\\
 %\pmb{\mathrm{F}}&=\frac{dE}{d\pmb{\mathrm{r}}}\\
 %E(r)&=-4\epsilon\left[\left(\frac{\sigma}{r}\right)^6-\left(\frac{\sigma}{r}\right)^{12}\right]
 %\end{split}
-%\end{equation}
+%\end{equation*}
 \begin{itemize}
 \item Computationally cheaper, reach larger length and time scales
 \item Ability to explicitly include mixing
-\item Cross-comparison between modelling approaches
+\item Comparison between modelling approaches
 \begin{itemize}
 \item Normal Mode Decomposition vs. Green-Kubo
 \end{itemize}
 \end{itemize}
 
 
-Since MD is classical, mode dependent volumetric specific heat is independent of temperature
-\begin{equation}\label{EQ:Cph}
+Since MD is classical, mode dependent volumetric specific heat is independent of temperature\footnote{McGaughey and Kaviany, Physical Review B, 2005.}
+\begin{equation*}\label{EQ:Cph}
 \textcolor{teal}{c_{ph}\kv}=\frac{\partial E}{V\partial T}=\frac{k_B}{V}	
-\end{equation}
+\end{equation*}
+%\hspace{-1cm}\scriptsize{3. McGaughey and Kaviany, Physical Review B, 2005.}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Harmonic Lattice Dynamics}
 \begin{columns}
-\column{.7\textwidth}
+\column{.6\textwidth}
 %$D(\pmb{\kappa})$ contains information about the masses, the geometry and second-order derivatives of interatomic potential.
 
 Solve the eigenvalue problem to obtain frequencies (eigenvalues) and polarization vectors (eigenvectors)
 
-\begin{equation}
+\begin{equation*}
 [D(\pmb{\kappa})-I\omega^2\kv]\pmb{\mathrm{e}}\kv = 0
-\end{equation}
+\end{equation*}
 
-Group velocities from finite differencing
-\begin{equation}\label{EQ:NMD:vg}
+Group velocities from finite differencing%\footnote{Ziman, \textit{Electrons and Phonons}, 2003.}
+\begin{equation*}\label{EQ:NMD:vg}
 \begin{split}
 \textcolor{red}{\pmb{\mathrm{v}}_{g}\kv}=\frac{\partial \omega \kv}{\partial \pmb{\kappa}}
 \end{split}
-\end{equation}
+\end{equation*}
 
-Determined $\textcolor{teal}{c_{ph}\kv}$, $\textcolor{red}{\pmb{\mathrm{v}}_{g}\kv}$. What about $\textcolor{blue}{\tau\kv}$ (relaxation time)?
+Determined $\textcolor{teal}{c_{ph}\kv}$, $\textcolor{red}{\pmb{\mathrm{v}}_{g}\kv}$. What about $\textcolor{blue}{\tau\kv}$ (mode lifetime)?
 \column{.2\textwidth}
 \begin{figure}[t]
 \begin{center}
@@ -215,31 +219,31 @@ Determined $\textcolor{teal}{c_{ph}\kv}$, $\textcolor{red}{\pmb{\mathrm{v}}_{g}\
 %Signal Processing:
 %Power Spectrum = $FFT\left \{XCORR[\dot{q}\kvt{}{}{}] \right\} $
 %%%
-%\begin{equation}\label{EQ:NMD:SED}
+%\begin{equation*}\label{EQ:NMD:SED}
 %\begin{split}
 %T\kvw=&\lim_{\tau_0\rightarrow\infty}\frac{1}{2\tau_0}\left|\frac{1}{\sqrt{2\pi}}\int_{0}^{\tau_0}\dot{q}\kvt\exp(-i\omega t)dt\right|^2
 %\end{split}
-%\end{equation}
+%\end{equation*}
 %%%
 %Expected to have Lorentzian form
 %%%
-%\begin{equation}\label{EQ:NMD:LOR}
+%\begin{equation*}\label{EQ:NMD:LOR}
 %T\kvw \approx C_0\kv\frac{\Gamma\kv/\pi}{[\omega_0\kv-\omega]^2+\Gamma^2\kv}
-%\end{equation}
+%\end{equation*}
 %%%
 %Fitting yields the lifetime
 %%%
-%\begin{equation}\label{EQ:lifetime}
+%\begin{equation*}\label{EQ:lifetime}
 %\textcolor{blue}{\tau\kv}=\frac{1}{2\Gamma\kv}
-%\end{equation}
+%\end{equation*}
 %%%
 Perform coordinate transformation:
 %%%
-\begin{equation}\label{EQ:NMD:qdot}
+\begin{equation*}\label{EQ:NMD:qdot}
 \begin{split}
 \hspace*{-1cm}\dot{q}\kvt{}{}{}=&\sum_{\alpha, b, l}^{3,4L,N}\sqrt{\frac{m_b}{N}}\textcolor{red}{\dot{u}_{\alpha}\lbt}\textcolor{blue}{e^*\kvba}\EXP{i\pmb{\kappa}\cdot\mathbf{r}_0\lO}
 \end{split}
-\end{equation}
+\end{equation*}
 \hspace*{-2cm}
 \vspace*{-0.5cm}
 \begin{itemize}
@@ -258,45 +262,39 @@ Power Spectrum = $FFT\left \{XCORR[\dot{q}\kvt{}{}{}] \right\} $
 \vspace*{-1cm}
 %Fitting yields the lifetime
 %%%
-%\begin{equation}\label{EQ:lifetime}
+%\begin{equation*}\label{EQ:lifetime}
 %\textcolor{blue}{\tau\kv}=\frac{1}{2\Gamma\kv}
-%\end{equation}
+%\end{equation*}
 %%%
+%\hspace{-0.7cm}\scriptsize{Maradudin and Fein, Physical Review, 1962.}
+\footnote{Maradudin and Fein, Physical Review, 1962.}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{System and Effects}
-System:
-\begin{itemize}
-\item Interatomic potential: Lennard-Jones
-\item Mass ratio: 3
-\item Temperature: 20 K
-\end{itemize}
-\newline
-\newline
-Interested in the effects of
-\begin{itemize}
-\item Superlattice period length
-\item Interfacial species mixing
-\end{itemize}
-on phonon properties
-\end{frame}
+\begin{frame}{\small{System setup}}
+\hspace{-1cm}
+\vspace{-1cm}
+\begin{columns}
+\column{.3\textwidth}
+MD: LAMMPS\\
+Potential: LJ\\
+Mass ratio: 3\\
+Temperature: 20 K
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\small{4x4 MD Domain}}
+\vspace*{-2cm}
+\column{.7\textwidth}
+\hspace{1cm}
 \begin{figure}[t]
 \begin{center}
-\vspace*{-0.8cm}
-\scalebox{0.5}{\includegraphics{4p_ai_cross.eps}}
+\scalebox{0.4}{\includegraphics{4p_ai_cross.eps}}
 \renewcommand{\figure}{Fig.}
 \label{fig:md_domain}
 \end{center}
 \end{figure}
-
+\end{columns}
+\vspace{1cm}
 \hspace{-0.5cm}\textcolor{orange}{ASSUMPTION}: eigenvectors for perfect SL can be used for mixed SL
-
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -344,7 +342,7 @@ In-plane (IP)
 \vspace*{-1cm}
 \hspace*{-0.9cm}
 %\begin{center}
-\includegraphics[height=70mm]{4p_dispersion_only.eps}
+\includegraphics[height=70mm]{4p_dispersion_shtc_1.eps}
 \renewcommand{\figure}{Fig.}
 \label{fig:disp_4p}
 %\end{center}
@@ -354,9 +352,63 @@ In-plane (IP)
 %\begin{center}
 \vspace*{-1.2cm}
 \hspace*{1.9cm}
-\scalebox{0.60}{\includegraphics{sed_shtc.eps}}
+\scalebox{0.60}{\includegraphics{sed_shtc_1.eps}}
 \renewcommand{\figure}{Fig.}
-%\caption{(Colour online) Spectral energy density plots for the selected modes along k=[1,0,0] of a 4x4 superlattice as shown in Figure~\ref{fig:dispersion}. Dark blue corresponds to a superlattice without mixing, red corresponds to mixing of 80/20 and light blue corresponds to mixing of 60/40.}
+\label{fig:sed}
+%\end{center}
+\end{figure}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Power Spectra}
+\begin{frame}{Power Spectrum for $4 \times 4$}
+\begin{columns}
+\column{.075\textwidth}
+\begin{figure}[t]
+\vspace*{-1cm}
+\hspace*{-0.9cm}
+%\begin{center}
+\includegraphics[height=70mm]{4p_dispersion_shtc_2.eps}
+\renewcommand{\figure}{Fig.}
+\label{fig:disp_4p}
+%\end{center}
+\end{figure}
+\column{.91\textwidth}
+\begin{figure}[t]
+%\begin{center}
+\vspace*{-1.2cm}
+\hspace*{1.9cm}
+\scalebox{0.60}{\includegraphics{sed_shtc_2.eps}}
+\renewcommand{\figure}{Fig.}
+\label{fig:sed}
+%\end{center}
+\end{figure}
+\end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Power Spectra}
+\begin{frame}{Power Spectrum for $4 \times 4$}
+\begin{columns}
+\column{.075\textwidth}
+\begin{figure}[t]
+\vspace*{-1cm}
+\hspace*{-0.9cm}
+%\begin{center}
+\includegraphics[height=70mm]{4p_dispersion_shtc_3.eps}
+\renewcommand{\figure}{Fig.}
+\label{fig:disp_4p}
+%\end{center}
+\end{figure}
+\column{.91\textwidth}
+\begin{figure}[t]
+%\begin{center}
+\vspace*{-1.2cm}
+\hspace*{1.9cm}
+\scalebox{0.60}{\includegraphics{sed_shtc_3.eps}}
+\renewcommand{\figure}{Fig.}
 \label{fig:sed}
 %\end{center}
 \end{figure}
@@ -371,12 +423,55 @@ In-plane (IP)
 \begin{center}
 \vspace*{-0.8cm}
 \hspace*{-1cm}
-\scalebox{0.65}{\includegraphics{lifvomega_defense.eps}}
+\scalebox{0.65}{\includegraphics{lifvomega_shtc_1.eps}}
 \renewcommand{\figure}{Fig.}
 \label{fig:lifetimes}
 \end{center}
 \end{figure}
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Perfect superlattice lifetimes}
+\begin{frame}{Lifetimes}
+\begin{figure}[!h]
+\begin{center}
+\vspace*{-0.8cm}
+\hspace*{-1cm}
+\scalebox{0.65}{\includegraphics{lifvomega_shtc_2.eps}}
+\renewcommand{\figure}{Fig.}
+\label{fig:lifetimes}
+\end{center}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Perfect superlattice lifetimes}
+\begin{frame}{Lifetimes}
+\begin{figure}[!h]
+\begin{center}
+\vspace*{-0.8cm}
+\hspace*{-1cm}
+\scalebox{0.65}{\includegraphics{lifvomega_shtc_3.eps}}
+\renewcommand{\figure}{Fig.}
+\label{fig:lifetimes}
+\end{center}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Perfect superlattice lifetimes}
+\begin{frame}{Lifetimes}
+\begin{figure}[!h]
+\begin{center}
+\vspace*{-0.8cm}
+\hspace*{-1cm}
+\scalebox{0.65}{\includegraphics{lifvomega_shtc_4.eps}}
+\renewcommand{\figure}{Fig.}
+\label{fig:lifetimes}
+\end{center}
+\end{figure}
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -536,19 +631,6 @@ In-plane (IP)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Acknowledgements}
-\begin{itemize}
-\item Prof. Cristina Amon
-\item Prof. Alan McGaughey
-\item Jason Larkin
-\item Atoms Lab  (UofT) and NPTL (CMU)
-\item Funding from NSERC, OGS and AMD
-\end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %\begin{frame}{NMD vs. ALD $4 \times 4$ SL}
 %\begin{figure}[t]
 %\begin{center}
@@ -585,7 +667,7 @@ Cross-Plane& \multicolumn{4}{c}{$N\times N$ Superlattice} \\
 \cline{2-5}\noalign{\smallskip}
 $N_xN_yN_z$ & $2\times2$ & $4\times4$ & $8\times8$ & $14\times14$  \\
 \noalign{\smallskip}\hline\noalign{\smallskip}
-$4\times6\times6$ & 0.15  & 0.17  &  0.15  &  0.21 \\
+%$4\times6\times6$ & 0.15  & 0.17  &  0.15  &  0.21 \\
 $6\times6\times6$ & 0.23  & 0.22  &  0.28  &  0.36 \\
 $8\times6\times6$ & 0.28  & 0.23  &  0.32  &  0.39 \\
 $10\times6\times6$ & 0.29  &   &    &   \\
@@ -608,7 +690,7 @@ In-Plane& \multicolumn{4}{c}{$N\times N$ Superlattice} \\
 \cline{2-5}\noalign{\smallskip}
 $N_xN_yN_z$ & $2\times2$ & $4\times4$ & $8\times8$ & $14\times14$  \\
 \noalign{\smallskip}\hline\noalign{\smallskip}
-$4\times6\times6$ & 0.53 & 0.52  &  0.56  &  0.69 \\
+%$4\times6\times6$ & 0.53 & 0.52  &  0.56  &  0.69 \\
 $6\times6\times6$ & 0.53 & 0.51  &  0.56  &  0.59 \\
 $8\times6\times6$ & 0.52 & 0.51  &  0.55  &  0.58 \\
 \hline\hline
